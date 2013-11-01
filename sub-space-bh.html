@@ -1,0 +1,140 @@
+<!-- i-C-a -->
+<div data-role="page" id="blackholes">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div class="navtitleholderbh" style="padding-top:14px;"><h1>Black Holes</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navbh-content">
+        <p>Welcome to Black Holes!</p>
+        <p>Find out about these strange and very powerful objects...</p>
+        <p>What is a black hole?</p>
+        <p>How is a black hole formed?</p>
+        <p>What is the Universe like around a black hole?</p>
+        <p>...and where do black holes go?</p>
+        <p>Check out the story and the images, and there’s some pretty cool videos too!</p>						
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="#" onclick="spaceBhLinks('sub-space-bh-whatisbh.html')" data-transition="slide"><img src="images/5-8/Space/Black_Holes/whatbhbtn.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="#" onclick="spaceBhLinks('sub-space-bh-comefrom.html')" data-transition="slide" ><img src="images/5-8/Space/Black_Holes/comebtn.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-space-bh-bhgo.html" onclick="spaceBhLinks('sub-space-bh-bhgo.html')" data-transition="slide" ><img src="images/5-8/Space/Black_Holes/wherebtn.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-space-bh-lifeabh.html" onclick="spaceBhLinks('sub-space-bh-lifeabh.html')" data-transition="slide" ><img src="images/5-8/Space/Black_Holes/lifebtn.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopbh"></div></div>
+    <div class="bbh"><div class="rwbh" id="bhaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="bhaudioplbtn"></div></div>
+    <div class="fbh"><div class="fwbh" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+    <!--<script language="javascript" type="text/javascript" src="js/coachscript.js"></script>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    function spaceBhLinks(goToPage){
+      $.mobile.changePage(goToPage);
+    }
+    (function() {
+      playing = false;
+      paused = true;
+      var spaceBhPage = $('#blackholes');
+      
+      spaceBhPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //change images path
+      changeImageSrc('blackholes');
+      findElementsWithBgImage('blackholes');
+      //changeAudioSrc();
+
+      if(sound.canPlayType('audio/mpeg')) {
+        spaceBhPage.find('#actualaudio-bh').html('<audio id="bhaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
+      } 
+      spaceBhPage.on('pageshow', function(){
+      
+        spaceBhPage.find("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            spaceBhPage.find('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            spaceBhPage.find('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });  
+
+        spaceBhPage.find("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+        });
+        
+        spaceBhPage.find("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        spaceBhPage.find("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        spaceBhPage.find("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          spaceBhPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+
+        spaceBhPage.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+        
+        spaceBhPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        spaceBhPage.find('.navbtn1, .navbtn2, .navbtn3, .navbtn4, .botlogoholder').on('tap', function(){
+          buttonClickEffects($(this));
+        });
+
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Black-Holes');},app.BHTrackTime);
+      });
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+
+  </script>
+</div> <!--//home-->

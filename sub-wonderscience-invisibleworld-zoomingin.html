@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="zoomingin">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw"><h1>Zooming In</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="naviw-content">
+        <p>No matter how hard you stare at your fingertip, your eyes are not powerful enough to see the individual atoms from which it is made.  One way to see them is to use a microscope.  Microscopes are like a "bionic eye" - making our eyes more powerful when we peer through them.</p>
+        <p>We can see individual atoms if we look through a special microscope called an electron microscope. What if we want to see even smaller things such as the nucleus?  Unfortunately, no microscope in the world today is powerful enough to see a nucleus ... but there are other ways to see things the size of the nucleus or even smaller.</p>
+      </div>
+        
+      <div class="navbtn1" style="top:320px;">
+        <p><a href="sub-wonderscience-invisibleworld-powerfulmicroscopes.html" data-transition="slide"><img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/powerfulmicroscopesbtn.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:320px;">
+        <p><a href="sub-wonderscience-invisibleworld-evensmaller.html" data-transition="slide" ><img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/evensmallerbtn.png"></a></p>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var zoominginPage = $("#zoomingin");
+      zoominginPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('zoomingin');
+      findElementsWithBgImage('zoomingin');
+      //changeAudioSrc();
+      zoominginPage.on('pageshow', function(){
+        zoominginPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        zoominginPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        
+        zoominginPage.find('.navbtn1').on('tap', function() { 
+          nav1Effects(); 
+        });
+        
+        zoominginPage.find('.navbtn2').on('tap', function() { 
+          nav2Effects(); 
+        });
+        
+        zoominginPage.find('.navbtn3').on('tap', function() { 
+          nav3Effects(); 
+        });
+        
+        zoominginPage.find('.navbtn4').on('tap', function() { 
+          nav4Effects(); 
+        });
+
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Zooming-In');},app.IWTrackTime);
+      });
+    })();
+    
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    
+  </script>
+</div> <!--//home-->

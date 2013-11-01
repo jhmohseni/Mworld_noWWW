@@ -1,0 +1,147 @@
+<!-- i-C-a -->
+<div id="bhingalaxy" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The Black Hole in Our Galaxy</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                  <a id="centermwlink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/centermw.jpg', 'The neighbourhood of the centre of our galaxy, the Milky Way')" href="#">click here</a>
+                 <a id="sagittariusalink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/sagittariusa.jpg', 'Sagittarius A*, the site of the supermassive black hole at the centre of our galaxy... Can you see the black hole?')" href="#">click here</a>
+                  <div id="zoomwrapper">
+                      <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                         <img src="images/5-8/Space/Black_Holes/Life_Around_BH/centermwpol.jpg" alt="" />
+                      </div>
+                      <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                         <img src="images/5-8/Space/Black_Holes/Life_Around_BH/sagittariusapol.jpg" alt="" />
+                      </div>
+                   </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentbh">
+                    <p>Yes, there is a black hole at the centre of our galaxy a very, very large black hole! But dont worry, its very very far away. In fact its so far away it will never come close enough to be a threat to the Earth.</p>
+                    <p>There are also other black holes in our galaxy, but these are much smaller than the black hole at the centre of our galaxy. These black holes are also very far away. You see, the Universe really is a very large place.</p>
+                    <p>What would happen if a black hole hit the Earth? If it was a big black hole, it would swallow the Earth. Luckily, this is very unlikely to ever happen.</p>
+                    <p>If a small black hole hit the Earth it would pass straight through the Earth, and keep on going.  The Universe really is a strange place too!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopbhingalaxy"></div></div>
+    <div class="bbh"><div class="rwbh" id="bhingalaxyaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="bhingalaxyaudioplbtn"></div></div>
+    <div class="fbh"><div class="fwbh" id="bhingalaxyaudiofbtn" ></div></div>
+    <div id="actualaudio-bhingalaxy" style="visibility:hidden;"></div>
+    <script>
+        var playing;
+        var paused;
+        (function() {
+          playing = false;
+          paused = true;
+          var bhingalaxyPage = $("#bhingalaxy");
+          bhingalaxyPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );    
+          //change images path
+          changeImageSrc('bhingalaxy');
+          findElementsWithBgImage('bhingalaxy');
+          //changeAudioSrc();
+          var pol1Var = bhingalaxyPage.find('div#pol1'),
+              pol2Var = bhingalaxyPage.find('div#pol2');
+          pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+          pol1Var.css("z-index", 2);
+          pol2Var.css("z-index", 1);
+          pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+
+          if(sound.canPlayType('audio/mpeg')) {
+              bhingalaxyPage.find('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/page19bh.mp3" type="audio/mpeg"></audio>');
+          } 
+   
+          bhingalaxyPage.on('pageshow', function(){
+        
+            bhingalaxyPage.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+            
+            pol2Var.on('tap', function() {
+              buttonClickEffects($(this));
+             $('#sagittariusalink')[0].click();
+             mworldViewMedia(app.kidid, 'sagittariusa');
+            });
+           
+            pol1Var.on('tap', function() {
+              buttonClickEffects($(this));
+              $('#centermwlink')[0].click();
+              mworldViewMedia(app.kidid, 'centermw');
+            });
+            
+            bhingalaxyPage.find("#playstopbhingalaxy").on('tap', function() {
+              if(!playing) {
+                bhingalaxyaudio.play();
+                bhingalaxyPage.find('.micbtnbh').css('background-position-x', '-81px');
+                mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
+                playing = true;
+                paused = false;
+              } else {
+                bhingalaxyaudio.pause();
+                bhingalaxyPage.find('.micbtnbh').css('background-position-x', '0px');
+                playing = false;
+                paused = true;
+              }
+            });
+            
+            bhingalaxyPage.find("#bhingalaxyaudioplbtn").on('tap', function() {
+              if(paused) {
+                bhingalaxyaudio.play();
+                paused = false;
+              } else {
+                bhingalaxyaudio.pause(); bhingalaxyaudio.currentTime = 0;
+                paused = true;
+              }
+            });
+            
+            bhingalaxyPage.find("#bhingalaxyaudiofbtn").on('tap', function() {
+              var ctime = bhingalaxyaudio.currentTime;
+              bhingalaxyaudio.currentTime = ctime + 10;
+            });
+            
+            bhingalaxyPage.find("#bhingalaxyaudiobbtn").on('tap', function() {
+              var ctime = bhingalaxyaudio.currentTime;
+              bhingalaxyaudio.currentTime = ctime - 10;
+            });
+            
+            bhingalaxyPage.find("#bhingalaxyaudiopsbtn").on('tap', function() {
+              bhingalaxyaudio.pause();
+              bhingalaxyPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
+
+            bhingalaxyPage.find('.botlogoholder').on('tap', function(){
+              buttonClickEffects($(this));
+              playClickSound();
+            });
+
+            setTimeout(function(){ mworldPageVisit(app.kidid, 'The-Black-Hole-in-Our-Galaxy'); },app.BHTrackTime);
+          });
+        })();
+
+        function goBack() {
+          $.mobile.changePage("sub-space-bh-galaxies.html");
+        }
+        function pausedaudio() {
+          bgsoundbh.play();
+        }
+
+        function pausebg() {
+          bgsoundbh.pause();
+        }
+       
+    </script>
+    <script src="js/twocardLogic.js"></script>
+</div>

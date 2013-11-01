@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="powerfulmicroscopes">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Powerful Microscopes</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="semlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sem.jpg', 'Scanning Electron Microscope used to see the invisible.')" href="#">click here</a>
+        <a id="bloodlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/blood.jpg', 'Scanning electron microscope image of human blood. In this image you can spot red blood cells, and white blood cells including lymphocytes and others.')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sempol.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bloodpol.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontentwos">
+        <p>Using an electron microscope is a bit like giving your eyes a super power the power to see something previously invisible  atoms! </p>
+        <p>When you look at atoms in an electron microscope, they appear as fuzzy white dots arranged in various patterns. It took a long time for scientists to find clever ways to build an electron microscope able to see atoms. They can take pictures of these atoms for you to see, making the invisible world visible!</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+    
+      var powerfulmicroscopesPage = $("#powerfulmicroscopes");  
+      powerfulmicroscopesPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var pol1Var = powerfulmicroscopesPage.find('div#pol1'),
+          pol2Var = powerfulmicroscopesPage.find('div#pol2');
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");      
+      pol1Var.css("z-index", 1);      
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");      
+    
+      //change images path
+      changeImageSrc('powerfulmicroscopes');
+      findElementsWithBgImage('powerfulmicroscopes');
+      //changeAudioSrc();
+      
+      powerfulmicroscopesPage.on('pageshow', function(){
+        pol2Var.on('tap', function() {
+          $('#bloodlink')[0].click();
+        });
+        
+        pol1Var.on('tap', function() {
+          $('#semlink')[0].click();
+        });
+
+        powerfulmicroscopesPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        
+        $('#eatinggasholder').css({"visibility":"hidden", "z-index":-10});  
+        powerfulmicroscopesPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Dark-Matter-Dark-Energy');},app.IWTrackTime);
+      });  
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-zoomingin.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+  <script src="js/twocardLogic.js"></script>
+</div> <!--//home-->

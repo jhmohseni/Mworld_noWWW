@@ -1,0 +1,1913 @@
+/* i-C-a */
+
+body { background:#000000 !important; font-size:17px;}
+
+#kid {
+  width:1024px;
+  height:740px !important;
+  margin:auto;
+  background:url('images/5-8/Home_Screen/final_world_background.png') no-repeat;
+  overflow: hidden !important;
+  /*background:url('images/5-8/Home_Screen/kidbg.png') no-repeat;*/
+}
+
+#kid2 {
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden;
+  margin:auto;
+  background:url('images/9-12/Home_Screen/homepage.jpg') no-repeat;
+  /*overflow: hidden !important;*/
+  /*background:url('images/5-8/Home_Screen/kidbg.png') no-repeat;*/
+}
+
+.v-spacer {
+  height:2px;
+  clear:both;
+}
+
+#logoholder {
+  margin-top:180px;
+  margin-left:75px;
+  float:left;
+}
+
+a.artmusic.bsubjectlink { background:url("images/5-8/Home_Screen/bartmusic.png") no-repeat; }
+a.dinosours.bsubjectlink { background:url("images/5-8/Home_Screen/bdinosours.png") no-repeat; }
+a.animals.bsubjectlink { background:url("images/5-8/Home_Screen/banimals.png") no-repeat; }
+a.humanbody.bsubjectlink { background:url("images/5-8/Home_Screen/bhumanbody.png") no-repeat; }
+a.science.bsubjectlink { background:url("images/5-8/Home_Screen/bscience.png") no-repeat; margin-top:10px; }
+a.peopleplaces.bsubjectlink { background:url("images/5-8/Home_Screen/bpeople.png") no-repeat; margin-top:10px; }
+a.space.bsubjectlink { background:url("images/5-8/Home_Screen/bspace.png") no-repeat; margin-top:10px; }
+a.cultures.bsubjectlink { background:url("images/5-8/Home_Screen/bculture.png") no-repeat; margin-top:10px; }
+a.natural.bsubjectlink { background:url("images/5-8/Home_Screen/bnatural.png") no-repeat; margin-top:25px; }
+a.modern.bsubjectlink { background:url("images/5-8/Home_Screen/bmodern.png") no-repeat; margin-top:25px; }
+a.ancient.bsubjectlink { background:url("images/5-8/Home_Screen/bancient.png") no-repeat; margin-top:25px; }
+a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat; margin-top:25px; }
+
+.bsubject .bsubjectlink {
+  width: 228px;
+  height: 144px;
+  display:block;
+  text-align:center;
+  margin:auto;
+}
+
+.bsubject {
+  /*width:215px;*/
+  width:25%;
+  height:116px;
+  float:left;
+  margin:10px auto;
+  text-align:center;
+}
+
+#ancient {
+  background:url('images/5-8/Ancient_Civilizations/ancientbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden;
+}
+
+#animals2 {
+  background:url('images/9-12/Animals/animalsbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden;
+}
+
+#artandmusic2 {
+  background:url('images/9-12/Art_and_Music/artandmusicbg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#humanbody2 {
+  background:url('images/9-12/Human_Body/humanbodybg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#languageculture2 {
+  background:url('images/9-12/Language_and_Culture/langcultbg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#peopleplaces2 {
+  background:url('images/9-12/People_and_Places/peopleplacesbg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#modernworld2 {
+  background:url('images/9-12/The_Modern_World/modernworldbg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#naturalworld2 {
+  background:url('images/9-12/The_Natural_World/naturalworldbg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#aroundag {
+  background:url('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/waagbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#spaceLoading {
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;  
+}
+
+#ancientgreece, #originsofgreece, #hittites, #kinghatpray, #mycenaeans, #minoans, #lifeinag,  
+#panathenai, #agschool, #agora, #lydians, #lydiansmoney, #agintro, #legacyofgreece, #legacyofgreece2, #minoansend,
+#tribesofgreece, #templesofgreece, #spartans, #storytelling, #romans, #persians, #xenophon, #egyptians,
+#phoenicians, #babylonians, #gilgamesh, #persianeducation, #mathsciencemore, #architecture {
+  /*background:url('images/5-8/Ancient_Civilizations/Greece/agbg.png') no-repeat;*/
+  background:url('images/9-12/Ancient_Civilizations/Greece/agbgn.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#theseus {
+  background:url('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/theseusbg.jpg') no-repeat;
+  height:748px;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#olympics{
+  background:url('images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/olympicbg.jpg') no-repeat;
+  height:748px;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#iliad {
+  background:url('images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/iliadbg.jpg') no-repeat;
+  height:748px;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#odyssey {
+  background:url('images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/odysseybg.jpg') no-repeat;
+  height:748px;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#animatedsoldier {
+  background:url('images/5-8/Ancient_Civilizations/Greece/soldiersprite12.png') no-repeat;
+  width:340px;
+  height:145px;
+  margin-left:535px;
+  float:left;
+}
+
+#acgreecechar {
+  /*background:url('images/5-8/Space/minister.png') no-repeat scroll 761px 30px transparent;*/
+  float:left;
+  width:1024px;
+  position:absolute;
+}
+
+.header { padding-left:70px; }
+
+.aclink {
+   width:25%;
+   margin:auto;
+   float:left;
+   text-align:center;
+   margin-top:20px;
+}
+
+#aglink {
+  width:197px;
+  height:200px;
+  margin:auto;
+  background:url('images/5-8/Ancient_Civilizations/aglink.png') no-repeat;
+}
+
+#eglink {
+  width:197px;
+  height:200px;
+  margin:auto;
+  background:url('images/5-8/Ancient_Civilizations/egyptlink.png') no-repeat;
+}
+
+#rolink {
+  width:197px;
+  height:200px;
+  margin:auto;
+  background:url('images/5-8/Ancient_Civilizations/romelink.png') no-repeat;
+}
+
+#chlink {
+  width:197px;
+  height:200px;
+  margin:auto;
+  background:url('images/5-8/Ancient_Civilizations/chinalink.png') no-repeat;
+}
+
+#node-body-holder-lifeinag {
+  font-family:"Chalkboard SE";
+  border:solid 5px #e6e6e6;
+  padding: 0 20px;
+  background:url('images/5-8/textbg.png');
+  max-height:265px;
+  overflow-y:scroll;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -border-radius:10px;
+}
+
+#node-body-holder-mycenaeans {
+  font-family:"Chalkboard SE";
+  padding: 0 20px;
+  max-height:360px;
+  overflow-y:scroll;
+  /*border:solid 5px #e6e6e6;
+  background:url('images/5-8/textbg.png');
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -border-radius:10px;*/
+}
+
+#node-body-holder, #node-body-holder1, #node-body-holder2, #node-body-holder3 {
+  font-family:"Chalkboard SE";
+  /*border:solid 5px #e6e6e6;*/
+  padding: 0 20px;
+  /*background:url('images/5-8/textbg.png');*/
+  max-height:320px;   /*Rhomar *****/
+  overflow-y:scroll;
+  /*-webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -border-radius:10px;*/
+}
+
+#titleb-holder, #title-holder { text-align:center; }
+
+#titleb-holder h1 { color:#FFFFFF; }
+
+#node-content-theseus {
+  width:80%;
+  margin:140px auto 50px auto;
+  text-align:left;
+}
+
+#node-content-kinghatpray {
+  width:80%;
+  margin:180px auto 60px auto;
+  text-align:left;
+}
+
+#node-content {
+  width:40%;
+  margin:90px auto 0 auto;
+  text-align:left;
+}
+
+#node-content-half {
+  width:50%;
+  margin:40px auto 0 auto; /*Rhomar   ******  */
+  text-align:left;
+  float:right;
+}
+
+.sidebarleft {
+  width:28%;
+  float:left;
+}
+
+.sidebarright {
+  width:28%;
+  float:right;
+}
+
+.sidebarleft-half {
+  width:50%;
+  float:left;
+}
+
+.kidzcontent {
+  margin-top:90px;
+}
+#eal2, #eal1, #legacy, #waag {
+  text-align:center;
+  margin:10px 0 0 0;
+}
+
+#eal2tall, #legacytall {
+  text-align:center;
+  margin:10px 0 0 0;
+}
+
+#eal2short, #eal3short, #eal2short-oag, #eal3short-oag {
+  text-align:center;
+  margin:10px 0 0 0;
+}
+
+#eal1short, #eal1short-oag {
+  text-align:center;
+  margin:24px 0 0 0;
+}
+
+#eal1tall, #waagtall {
+  text-align:center;
+  margin:10px 0 0 0;
+}
+
+#vidlinkholder {
+  border:solid 5px #e6e6e6;
+  padding: 0;
+  background:#ffffff;
+  width:376px;
+  margin:auto;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -border-radius:10px;
+}
+
+#space {
+  background:url('images/5-8/Space/spacebg.png') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden;
+}
+
+#space2 {
+  background:url('images/9-12/Space/spacebg.png') no-repeat;
+  /*height:748px;*/
+  width:1024px !important;
+}
+
+#blackholes {
+  background:url('images/5-8/Space/Black_Holes/bhnavbg.jpg') no-repeat;
+  /*height:748px !important;*/
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#whatisbh, #supergiant, #supernova, #snexplosion, #formgold, #neutron, #blackhole,
+#nscollide, #lifeabh, #galaxies, #bhingalaxy, #quasars, #binaries, #bhgo,
+#Where-Do-Black-Holes-Go, #Black-Holes, #What-Is-A-Black-Hole {
+  background:url('images/5-8/Space/Black_Holes/bhbg.jpg') no-repeat;
+  /*height:748px !important;*/
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#seebh {
+  background:url('images/5-8/Space/Black_Holes/bhbg.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#supergiantpage {
+  background:url('images/5-8/Space/Black_Holes/Where_BH_Come/supergiantbg.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#gravity, #Gravity {
+  background:url('images/5-8/Space/Black_Holes/What_is_BH/gravitybg.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#bhcomefrom {
+  background:url('images/5-8/Space/Black_Holes/Where_BH_Come/bhcomefrombg.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+/*for animated gif test*/
+#animated {
+  /*background:url('images/5-8/Ancient_Civilizations/animated.gif') no-repeat;*/
+  width:64px;
+  height:88px;
+  float:right;
+  margin-top:200px;
+}
+/*end for animated gif test*/
+
+#spacechar {
+  /*background:url('images/5-8/Space/minister.png') no-repeat scroll 761px 30px transparent;*/
+  height:748px;
+  width:1024px !important;
+}
+
+#coach {
+  /*background:url('images/5-8/Space/coachrico.png') no-repeat scroll 761px 30px transparent;*/
+  height:748px;
+  width:1024px;
+}
+
+#node-pop { width: 90%; margin:auto; padding:10px;}
+
+#vidoverlay { 
+  background: url('images/vidplaybtn.png') no-repeat center center transparent; 
+  width:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:100;
+}
+
+.previdcontainer {
+  float:left;
+  position:absolute;
+  left:0;
+  top:46px;
+  z-index:0;
+}
+
+#foot-band { font-size:14px; }
+
+/************************************/
+.row-1{
+	margin-top: 145px;
+	margin-left: 211px;
+}
+
+.natural-world{
+	margin-left: 308px;
+}
+
+.row-2{
+	margin-left: 392px;
+}
+
+.people_and_places{
+	position: relative;
+	bottom: 65px;
+}
+
+.ancient_civilization{
+	position: relative;
+	left: 286px;
+	bottom: 49px;
+}
+
+.language_and_culture{
+	position: relative;
+	left: 219px;
+	bottom: 115px;
+}
+
+.wonder_of_science{
+	position: relative;
+	left: 411px;
+	bottom: 64px;
+}
+
+.human_body{
+	position: relative;
+	left: 487px;
+	bottom: 83px;
+}
+
+.art_and_music{
+	position: relative;
+	left: 616px;
+	bottom: 42px;
+}
+
+.row-4{
+	margin-left: 189px;
+}
+
+.animals{
+	position: relative;
+	bottom: 74px;
+}
+
+.modern_world{
+	position: relative;
+	left: 384px;
+	bottom: 53px;
+}
+
+#spacegallery {
+  background:url('images/spacegallery/spacegallerybg.jpg') no-repeat;
+  height:748px  !important;
+  width:1024px;
+  overflow: hidden;
+}
+
+#museum {
+  background:url('images/museum/museumbg.jpg') no-repeat;
+  height:748px  !important;
+  width:1024px;
+  overflow: hidden;
+}
+
+/*#museumslider {
+  background:url('images/museum/carousel.png') center 0px no-repeat;
+}*/
+
+#carousel-left {
+  background:url('images/museum/carousel-left.png') no-repeat;
+  width:47px;
+  height:198px;
+  float:left;
+  z-index:99;
+}
+
+#carousel-right {
+  background:url('images/museum/carousel-right.png') no-repeat;
+  width:47px;
+  height:198px;
+  float:right;
+  z-index:99;
+}
+
+.zoomProps{	  
+  height: 185px;
+  width: 197px;
+  position:absolute;
+  visibility:hidden;
+  top:310px;
+  left:398px;
+}
+	
+#zoomwrapper {
+  height: 500px;
+  width: 994px;
+  overflow: hidden;
+}
+		  
+.upSky{ background: #FFFFFF; }
+
+/********* control panel **********/
+
+
+.taskbarpanel a img {
+  margin: 0 0 20px 30px;
+  
+}
+
+.taskbarpanel {
+  float:left;
+  overflow:hidden;
+  z-index:9999;
+  position:relative;
+  top:140px;
+  left:-280px;
+}
+
+.taskbar {
+  width:500px;
+  height:100px;
+  background:url('images/taskbarbg.png');
+  position:absolute;
+  top:-100px;
+  left:10px;
+  border:solid 2px #000000;
+}
+
+.tbicon {
+  background:url('images/taskbarbg.png');
+  width:100px;
+  float:left;
+  height:80px;
+  margin:10px 0px 10px 20px;
+  color:#FFFFFF;
+  text-align:center;
+}
+
+#control-panel {
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+  background:url('images/controlpanel/cpbg.jpg') no-repeat;
+}
+
+#mzlink {
+  position:absolute;
+  background:url('images/controlpanel/cp-mzonebtn.png') no-repeat;
+  width:144px;
+  height:270px;
+  top:134px;
+  left:3px;
+}
+
+#aclink {
+  position:absolute;
+  background:url('images/controlpanel/cp-coachbg.png') no-repeat;
+  width:182px;
+  height:308px;
+  top:420px;
+  left:3px;
+}
+
+#friendslink {
+  position:absolute;
+  float:left;
+  width:256px;
+  height:157px;
+  background:url('images/controlpanel/cp-friendsbtn.png') no-repeat;
+  top:588px;
+  left:185px;
+}
+
+#settingslink {
+  position:absolute;
+  float:left;
+  width:274px;
+  height:146px;
+  background:url('images/controlpanel/cp-settingsbtn.png') no-repeat;
+  top:601px;
+  left:444px;
+}
+
+#mpointslink {
+  position:absolute;
+  float:left;
+  width:226px;
+  height:70px;
+  background:url('images/controlpanel/cp-mpointsbtn.png') no-repeat;
+  top:4px;
+  left:784px;
+}
+
+#panel-mpoints {
+  position:absolute;
+  width:649px;
+  height:398px;
+  left:1024px;
+  top:120px;
+  background:url('images/controlpanel/panel-mpoints.png') no-repeat;
+}
+
+#panel-friends {
+  position:absolute;
+  width:743px;
+  height:383px;
+  left:134px;
+  top:748px;
+  background:url('images/controlpanel/panel-friends.png') no-repeat;
+}
+
+#panel-settings {
+  position:absolute;
+  width:548px;
+  height:348px;
+  left:234px;
+  top:-348px;
+  background:url('images/controlpanel/panel-settings.png') no-repeat;
+}
+
+#panel-mzones {
+  position:absolute;
+  width:650px;
+  height:454px;
+  left:-650px;
+  top:120px;
+  background:url('images/controlpanel/panel-mzone.png') no-repeat;
+}
+
+.mzl {
+  width:109px;
+  height:109px;
+  margin-right:44px;
+  float:left;
+}
+
+/********* /control panel **********/
+
+/******* homescreen sprites**********/
+#schead { background:url('images/9-12/Home_Screen/sch.png') no-repeat 0 0; }
+#sctail { background:url('images/9-12/Home_Screen/sct.png') no-repeat 0 0; }
+#waterfall{ background:url('images/9-12/Home_Screen/waterfall.png') no-repeat 0 0; }
+#fountain{ background:url('images/9-12/Home_Screen/fountain.png') no-repeat 0 0; }
+/******* /homescreen sprites**********/
+
+/*******bh games**********/
+#game-bh1 {
+  background:url('images/5-8/Space/Black_Holes/game/game1bg.png') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+#game-bh2 {
+  background:url('images/5-8/Space/Black_Holes/game/game2bg.png') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+.bhgame2Q {
+  height:67px;
+  width:184px;
+  position:absolute;
+}
+
+.bhgame2A {
+  height:67px;
+  width:102px;
+  padding-left:16px;
+  position:absolute;
+  background:url('images/5-8/Space/Black_Holes/game/nozlebooster.png') no-repeat 0 8px;
+}
+
+.bhgame1Piece {	  
+  height: 186px;
+  width: 173px;
+  position:absolute;
+  top:310px;
+  left:398px;
+}
+
+#clueboardleft { background:url('images/5-8/Space/Black_Holes/game/cbl.png') no-repeat; }
+#clueboardright { background:url('images/5-8/Space/Black_Holes/game/cbr.png') no-repeat; }
+#urbracket { 
+  background:url('images/5-8/Space/Black_Holes/game/urbracket.png') no-repeat; 
+  height:158px;
+  width:186px;
+  float:left;
+}
+#lrbracket { 
+  background:url('images/5-8/Space/Black_Holes/game/lrbracket.png') no-repeat -384px 0; 
+  height:158px;
+  width:186px;
+  float:right;
+}
+
+#arrow1, #arrow3 {
+  background:url('images/5-8/Space/Black_Holes/game/arrow1.png') no-repeat 0 0;
+}
+#arrow2 {
+  background:url('images/5-8/Space/Black_Holes/game/arrow2.png') no-repeat 0 0;
+}
+#bqlink {
+  background:url('images/5-8/Space/Black_Holes/game/bh1bq.png') no-repeat 0 0;
+}
+
+#bonusq {
+  background:url('images/taskbarbg.png');
+  width:500px;
+  height:250px;
+  position:absolute;
+  top:100px;
+  left:300px;
+  border:solid 2px #000000;
+  text-align:center;
+  padding:20px;
+  -webkit-border-radius:30px;
+  -moz-border-radius:30px;
+  -border-radius:30px;
+}
+/******* /bh games**********/
+
+/******* ag games**********/
+#game-ag1 {
+  background:url('images/5-8/Ancient_Civilizations/Greece/game/game1bg.jpg') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+#game-ag2 {
+  background:url('images/5-8/Ancient_Civilizations/Greece/game/game2bg.jpg') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+#game-ag3 {
+  background:url('images/5-8/Ancient_Civilizations/Greece/game/game3bg.jpg') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+.aggame1Piece {
+  position:absolute;
+}
+/******* /ag games**********/
+
+
+/******* polaroidtest**********/
+
+.pPiece img {
+  /*border-radius: 20px;*/
+  -webkit-border-radius: 25px;
+  border:solid 4px #FFFFFF;
+  box-shadow: 5px 5px 5px #000000;
+}
+
+.pPiece {
+  position:absolute;
+  width:360px;
+  height:280px;
+  top:310px;
+  left:398px;
+}
+/******* /polaroidtest**********/
+
+/******* avatarcreator*********/
+#avatarcreator {
+  background:url('images/avatar/avatarcreatorbg.jpg') no-repeat;
+  height:748px;
+  width:1024px;
+}
+/******* /avatarcreator*********/
+
+/**********flipcard effect**************/
+#f1_container {
+  position: relative;
+  width: 360px;
+  height: 280px;
+  z-index: 1;
+}
+#f1_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+#f1_card {
+  width: 360px;
+  height: 280px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 1.0s linear;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 1.0s linear;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+  
+}
+
+#f2_container {
+  position: relative;
+  width: 360px;
+  height: 280px;
+  z-index: 1;
+}
+#f2_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+#f2_card {
+  width: 360px;
+  height: 280px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 1.0s linear;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 1.0s linear;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-border-radius: 25px;
+  border:solid 4px #FFFFFF;
+  box-shadow: 5px 5px 5px #000000;
+}
+.face.back {
+  display: block;
+  -webkit-transform: rotateY(180deg);
+  -webkit-box-sizing: border-box;
+  -moz-transform: rotateY(180deg);
+  -moz-box-sizing: border-box;
+  -o-transform: rotateY(180deg);
+  -o-box-sizing: border-box;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
+}
+/********** /flipcard effect**************/
+
+/***********slider button************/
+.menubtnholder {
+  position:absolute;
+  top:675px;
+  left:5px;
+  z-index:21;
+}
+
+.menubtnbh {
+  background:url('images/5-8/Space/menu.png') no-repeat 0 -90px;
+  height:90px;
+  width:90px;
+}
+
+.homebtnbh {
+  background:url('images/5-8/Space/map.png') no-repeat 0 -74px;
+  height:74px;
+  width:80px;
+}
+
+.mpbtnbh {
+  background:url('images/5-8/Space/mpoints.png') no-repeat 0 -84px;
+  height:79px;
+  width:80px;
+}
+
+.cpbtnbh {
+  background:url('images/5-8/Space/ctrlpnl.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.infobtnbh {
+  background:url('images/5-8/Space/info.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.credsbtnbh {
+  background:url('images/5-8/Space/credits.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.homebtnholder, .cpbtnholder, .buildbtnholder, .mpbtnholder, .credsbtnholder, .infobtnholder {
+  position:absolute;
+  top:683px;
+  left:-93px;
+  z-index:20;
+}
+
+.menuhousing {
+  /*background:url('images/5-8/Ancient_Civilizations/Greece/menuhousing.png');*/
+  width:660px;
+  height:145px;
+  position:absolute;
+  /*top:267px;*/
+  top:603px;
+  left:-660px;
+  z-index:19;
+}
+/*********** /slider button************/
+
+/************* new rules ***********/
+.bptitleholder {
+  width:627px;
+  height:68px;
+  text-align:center;
+  line-height:28px;
+  position:absolute;
+  top:169px;
+  left:194px;
+}
+
+.bptitleholderbh {
+  width:627px;
+  height:68px;
+  text-align:center;
+  line-height:28px;
+  position:absolute;
+  top:169px;
+  left:194px;
+}
+
+.navtitleholder {
+  width:410px;
+  height:68px;
+  position:absolute;
+  top:169px;
+  left:305px;
+  text-align:center;
+  line-height:32px;
+}
+
+.navtitleholderbh {
+  width:410px;
+  height:68px;
+  position:absolute;
+  top:169px;
+  left:305px;
+  text-align:center;
+  line-height:32px;
+}
+
+.navtitleholder h1, .bptitleholder h1, h1 {
+  text-transform:uppercase;
+  color: #000000;
+  font-family:"Chalkboard SE";
+  font-weight:normal;
+  padding:0;
+  margin:0;
+}
+
+.navtitleholderbh h1, .bptitleholderbh h1 {
+  text-transform:uppercase;
+  color: #000000;
+  font-family:"Chalkboard SE";
+  font-weight:normal;
+  padding:0;
+  margin:0;
+}
+
+.navbh-content {
+  position:absolute;
+  left:305px;
+  top:263px;
+  width:410px;
+  height:359px;
+  overflow-y:scroll;
+  text-align:left;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  color:#000000;
+}
+
+.nav-content {
+  position:absolute;
+  left:305px;
+  top:263px;
+  width:410px;
+  height:359px;
+  overflow-y:scroll;
+  text-align:left;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+}
+
+.navbtn1 {
+  position:absolute;
+  left:60px;
+  top:221px;
+}
+
+.navbtn2 {
+  position:absolute;
+  left:60px;
+  top:449px;
+}
+
+.navbtn3 {
+  position:absolute;
+  left:760px;
+  top:221px;
+}
+
+.navbtn4 {
+  position:absolute;
+  left:760px;
+  top:449px;
+}
+
+.botlogoholder {
+  width:137px;
+  height:94px;
+  position:absolute;
+  left:444px;
+  top:673px;
+  text-align:center;
+}
+
+.bpcontent {
+  width:413px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+}
+
+.bpcontentbh {
+  width:413px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+  color:#000000;
+}
+
+.bpcontent p, .nav-content p, .bpcontentbh p, .navbh-content p , .bpcontentwos p{
+  margin-top:0 !important;
+}
+
+.storypagetitle {
+  width:390px;
+  font-family:"Chalkboard SE";
+  position:absolute;
+  left:550px;
+  top:200px;
+  text-align:center;
+}
+
+.storypagetitlebh h1 { color:#FFFFFF;}
+
+.storypagetitlebh {
+  width:390px;
+  font-family:"Chalkboard SE";
+  position:absolute;
+  left:550px;
+  top:200px;
+  text-align:center;
+  color:#FFFFFF;
+}
+
+.storypage{
+  width:390px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+}
+
+.storypagebh{
+  width:390px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+  color:#FFFFFF;
+}
+
+.audiopanel {
+  position:absolute;
+  top:611px;
+  left:827px;
+  width:169px;
+  height:137px;
+  /*background:url("images/audio/micpanel.png") no-repeat 0 0;*/
+  padding-left:28px;
+}
+
+.plbh, .psbh, .bbh, .fbh {
+  position:absolute;
+  top:683px;
+  left:1024px;
+  z-index:20;
+} 
+
+.micbtnholder {
+  position:absolute;
+  top:680px;
+  left:934px;
+  width:81px;
+  height:81px;
+}
+
+.micbtnbh {
+  background:url('images/5-8/Space/mic.png') no-repeat 0 -81px;
+  height:81px;
+  width:81px;
+}
+
+.rwbh {
+  background:url('images/5-8/Space/rw.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.plpsbh {
+  background:url('images/5-8/Space/play.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.fwbh {
+  background:url('images/5-8/Space/fw.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+/************* /new rules ***********/
+
+/*************mzone-space***********/
+div#spacegallery {
+	background:url(images/spacegallery/spacegallerybg.jpg) no-repeat;
+	width:1024px;
+	height:748px;
+	margin:0 auto;
+}
+
+.slider-wrapper {
+	width:83%;
+	position:absolute;
+	top:620px;
+}
+
+ul.slides {
+	background:#000;
+}
+
+.flexslider {
+	width:81%;
+	margin:0 auto !important;
+}
+/************* /mzone-space*********/
+
+[data-role="page"], [data-role="content"] {
+    height: 100% !important;
+    padding:0 !important;
+}
+
+/* loading page */
+.loading-status {
+  width:400px;margin:0 auto;text-align:center;
+} 
+
+.loading-page-loader {
+  width:60px;margin:0 auto;
+}
+/********* the wonders of science  **********/
+.storypagetitlewos {
+  width:390px;
+  font-family:"Chalkboard SE";
+  position:absolute;
+  left:550px;
+  top:200px;
+  text-align:center;
+}
+
+.storypagetitlewos h1 { color:#FFFFFF;}
+
+.storypagewos{
+  width:390px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+}
+
+#wonderscience {
+  background:url('images/9-12/The_Wonders_of_Science/wondersciencebg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+.plwos, .pswos, .bwos, .fwos {
+  position:absolute;
+  top:683px;
+  left:1024px;
+  z-index:20;
+}
+
+.micbtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/micwos.png') no-repeat 0 -81px;
+  height:81px;
+  width:81px;
+}
+
+.rwwos {
+  background:url('images/9-12/The_Wonders_of_Science/rwwos.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.plpswos {
+  background:url('images/9-12/The_Wonders_of_Science/playwos.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.fwwos {
+  background:url('images/9-12/The_Wonders_of_Science/fwwos.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.menubtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/menuwos.png') no-repeat 0 -90px;
+  height:90px;
+  width:90px;
+}
+
+.homebtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/mapwos.png') no-repeat 0 -74px;
+  height:74px;
+  width:80px;
+}
+
+.mpbtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/mpointswos.png') no-repeat 0 -84px;
+  height:79px;
+  width:80px;
+}
+
+.cpbtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/ctrlpnlwos.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.infobtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/infowos.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.credsbtnwos {
+  background:url('images/9-12/The_Wonders_of_Science/creditswos.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.bpcontentwos {
+  width:413px;
+  height:356px;
+  position:absolute;
+  left:550px;
+  top:266px;
+  overflow-y:scroll;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  text-align:left;
+  color:#000000;
+}
+/********* the wonders of science -end **********/
+/***********invisible world *********/
+#topquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tq.png') no-repeat 0 0; }
+#upquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/uq.png') no-repeat 0 0; }
+#downquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/dq.png') no-repeat 0 0; }
+#strangequark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/sq.png') no-repeat 0 0; }
+#charmquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/cq.png') no-repeat 0 0; }
+
+#game-iw1 {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/game1bg.jpg') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+#overlayiwg1 {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/overlay.png');
+}
+
+#magnifyhand {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyhand.png');
+}
+
+#livello {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/livello.png');
+}
+
+#quarks {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/quarksbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#nucleus {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/neutronbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#particlezoo {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/particlezoobg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#buzzingelectron {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/buzzingelectronbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#whatiseverythingmadeof {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/whatiseverythingmadeofbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#weirdbuttrue {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/weirdbuttruebg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#quantumsupercomps {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercompsbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#invisibleworld, #whatelseisoutthere, #antimatter, #cosmicrays, #darkmatterdarkenergy, #lightfuzzylumps, #howstrangecanitget, #zoomingin,
+#evensmaller, #powerfulmicroscopes, #bubbleclues, #playingdetective {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/invisibleworldbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+.navtitleholderiw h1 {
+  color:#FFFFFF;
+}
+
+.navtitleholderiw {
+  width:410px;
+  height:68px;
+  position:absolute;
+  top:169px;
+  left:305px;
+  text-align:center;
+  line-height:32px;
+}
+
+.naviw-content {
+  position:absolute;
+  left:305px;
+  top:263px;
+  width:410px;
+  height:359px;
+  overflow-y:scroll;
+  text-align:left;
+  font-family:"Chalkboard SE";
+  font-size:18px;
+  font-weight:normal;
+  color:#000000;
+}
+/* invisible world games */
+#inworldgame-bigtosmall {
+    background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/bigtosmallgamebg.jpg') no-repeat;
+    height: 748px !important;
+    width:1024px !important;
+    overflow:hidden !important;
+}
+
+.dialogOverlay {
+    position: absolute;
+    border: none !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index:3000 !important;
+}
+
+/* Biggest to Smallest Game */
+
+#inworldgame-bigtosmall {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+}
+
+#inworldgame-bigtosmall #gamedescription {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    height: 200px;
+    width: 300px;
+    font-weight: normal;
+    color: white;
+}
+
+#inworldgame-bigtosmall #choicetapeImage1 {
+    position: absolute;
+    top: 115px;
+    left: 65px;
+    height: 90px;
+    width: 90px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage2 {
+    position: absolute;
+    top: 270px;
+    left: 65px;
+    height: 100px;
+    width: 100px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage3 {
+    position: absolute;
+    top: 375px;
+    left: 40px;
+    height: 150px;
+    width: 150px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage4 {
+    position: absolute;
+    top: 570px;
+    left: 65px;
+    height: 90px;
+    width: 90px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetape1 {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape1.png') no-repeat;
+    top: 200px;
+    left: 20px;
+    height: 40px;
+    width: 180px;
+    -webkit-transform: rotate(6deg); 
+    -moz-transform: rotate(6deg);    
+}
+
+#inworldgame-bigtosmall #choicetape2 {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape2.png') no-repeat;
+    top: 350px;
+    left: 20px;
+    height: 40px;
+    width: 180px;
+    -webkit-transform: rotate(-4deg); 
+    -moz-transform: rotate(-4deg);    
+}
+
+#inworldgame-bigtosmall #choicetape3 {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape3.png') no-repeat;
+    top: 500px;
+    left: 20px;
+    height: 40px;
+    width: 180px;
+    -webkit-transform: rotate(-8deg); 
+    -moz-transform: rotate(-8deg);    
+}
+
+#inworldgame-bigtosmall #choicetape4 {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape4.png') no-repeat;
+    top: 650px;
+    left: 20px;
+    height: 40px;
+    width: 180px;
+    -webkit-transform: rotate(2deg); 
+    -moz-transform: rotate(2deg);    
+}
+
+#inworldgame-bigtosmall #choice1 {
+    position: absolute;
+    top: 195px;
+    left: 48px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choice2 {
+    position: absolute;
+    top: 195px;
+    left: 236px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choice3 {
+    position: absolute;
+    top: 195px;
+    left: 424px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choice4 {
+    position: absolute;
+    top: 195px;
+    left: 612px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choiceResult1 {
+    position: absolute;
+    top: 205px;
+    left: 58px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choiceResult2 {
+    position: absolute;
+    top: 205px;
+    left: 246px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choiceResult3 {
+    position: absolute;
+    top: 205px;
+    left: 434px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #choiceResult4 {
+    position: absolute;
+    top: 205px;
+    left: 622px;
+    height: 150px;
+    width: 150px;
+    z-index: 1000;
+}
+
+#inworldgame-bigtosmall #checkingbar {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcheckingbar.png') no-repeat;    
+    background-size: 100% 100%;
+    opacity: 0.5;
+    filter: "Alpha(Opacity=50)";
+    top: 330px;
+    left: 190px;
+    height: 35px;
+    width: 400px;
+}
+
+#inworldgame-bigtosmall .correct-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcorrect.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall .wrong-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwwrong.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall .proton-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwprotonchoice.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall .quack-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwquarkchoice.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall .atom-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwatomchoice.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall .nucleus-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwnucleuschoice.png') no-repeat;
+    background-position: center center;
+}
+
+#inworldgame-bigtosmall #gamepaper {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamepaper.png') no-repeat;
+    background-size: 100% 100%;
+    top: 80px;
+    left: 210px;
+    height: 600px;
+    width: 810px;
+}
+
+#inworldgame-bigtosmall #back {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwbackbtn.png') no-repeat;
+    top: 470px;
+    left: 180px;
+    height: 100px;
+    width: 150px;
+}
+
+#inworldgame-bigtosmall #reset {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwresetbtn.png') no-repeat;
+    top: 470px;
+    left: 350px;
+    height: 100px;
+    width: 150px;
+}
+
+#inworldgame-bigtosmall #submit {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwsubmitbtn.png') no-repeat;
+    top: 470px;
+    left: 520px;
+    height: 100px;
+    width: 150px;
+}
+
+#inworldgame-bigtosmall #gamedialog {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamedialog.png') no-repeat !important;
+    background-size: 100% 100% !important;
+    background-color: transparent;
+    height: 360px;
+    width: 300px;
+    top: 120px;
+    left: 50%;
+    margin-left:-150px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    z-index:99999 !important;
+}
+
+#inworldgame-bigtosmall #gamedialog h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 25px !important;
+    font-weight: normal !important;
+    color: red;
+    text-align: center;
+}
+
+#inworldgame-bigtosmall .gamedialog-button {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 25px !important;
+    font-weight: normal !important;
+    color: #000000 !important;
+    padding: 2px 2px 2px 2px;
+    text-decoration: #000000 underline solid !important;
+    text-align: center;
+}
+
+#inworldgame-bigtosmall #orderfrom {  
+    position: absolute;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    -webkit-transform: rotate(-2deg); 
+    -moz-transform: rotate(-2deg);    
+    top: 330px;
+    left: 70px;
+    height:50px;
+    width:150px;
+}
+
+#inworldgame-bigtosmall #orderto {
+    position: absolute;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    -webkit-transform: rotate(-2deg); 
+    -moz-transform: rotate(-2deg);    
+    top: 320px;
+    left: 612px;
+    height:50px;
+    width:150px;
+}
+/***********invisible world end *********/
+
+/************* missionmars *********/
+
+#missionmars {
+  background:url(images/5-8/Space/Mission_Mars/mission-mars-bg.png) no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#openquiz {
+  background-color:green;
+  position: absolute;
+  z-index: 2;
+  height: 50px;
+  width: 100px;
+}
+#question {
+  text-align: center;
+  padding-top: 40px;
+  width: inherit;
+  height: 18px;
+}
+#quiz {
+  width:968px;
+  height:720px !important;
+  margin:auto;
+  background:url(images/5-8/Space/Mission_Mars/M2M_Quiz-frame.png) no-repeat;
+  overflow: hidden !important;
+}
+#close {
+  position: absolute;
+  left: 894px;
+  top: 70px;
+  z-index: 2;
+}
+#result {
+  border: 3px solid #30acc8;
+  background-color:#06222c;
+  border-radius: 10px;
+  width: 245px;
+  position: absolute;
+  text-align: center;
+  left: 570px;
+  top: 10px;
+  height: 290px;
+  padding-top: 90px;
+  z-index: 2;
+}
+.display {
+  width: inherit;
+  height: 400px;
+  position: absolute;
+  display: block;
+  margin-top: 100px;
+}
+.option {
+  border: 3px solid #30acc8;            
+  background-color:#06222c;
+  width: 245px;
+  position: absolute;
+  text-align: center;
+  border-radius: 10px;
+  left: 570px;
+  z-index: 2;
+}
+.display h5 {
+  padding-right: 10px;
+  padding-left: 10px;
+  color: whitesmoke;
+}
+.display h4 {
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #00feff;
+}
+#overlay{
+  background-color: black;
+  opacity: 0.7;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  z-index: 0;
+}
+#quizpzrent {
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  z-index: 1;
+  display: block;
+}

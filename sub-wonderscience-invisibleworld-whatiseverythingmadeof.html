@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="whatiseverythingmadeof">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+    <div data-role="content" class="kidzcontent">
+      
+      <div class="storypagetitlewos" style="top:130px"><h1>What is Everything Made Of?</h1></div>
+      <div class="storypagewos">
+        <p>Everything you see around you is made from very tiny things called atoms.  You can make anything you see in the world by putting atoms together. They're so small that millions of atoms sitting side by side would be as thick as a hair on your head!</p>
+        <p>You can't see an atom sitting by itself  it's invisible!  Yet when you put enough atoms together, you can make anything you see in the world around you.</p>
+      </div>
+      <div id="instructions" style="position:absolute;top:520px;left:420px;width:100px;height:100px;font-size:12px;">
+        Drag the magnifying glass over the hand to find out more.
+      </div>
+      <div id="magnifyhand" style="width:361px;height:714px;left:26px;top:34px;position:absolute;"></div>
+      <div id="livello" style="width:469px;height:511px;left:73px;top:145px;position:absolute;visibility:hidden;z-index:0;">
+        <div id="nucleuslink" style="width:80px;height:80px;left:195px;top:185px;background:transparent;position:absolute"></div>
+        <div class="electronlink" style="width:50px;height:50px;left:160px;top:280px;background:transparent;position:absolute"></div>
+        <div class="electronlink" style="width:50px;height:50px;left:260px;top:125px;background:transparent;position:absolute"></div>
+        <div class="electronlink" style="width:50px;height:50px;left:110px;top:243px;background:transparent;position:absolute"></div>
+        <div class="electronlink" style="width:50px;height:50px;left:310px;top:158px;background:transparent;position:absolute"></div>
+      </div>
+      <div id="zoomwrapper">
+        <div id="mglass" style="left:392px;top:416px;position:absolute;">
+           <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png" alt="" />
+        </div>
+      </div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+    
+      var WiETMo = $("#whatiseverythingmadeof");
+      WiETMo.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('whatiseverythingmadeof');
+      findElementsWithBgImage('whatiseverythingmadeof');
+      //changeAudioSrc();
+
+      WiETMo.on('pageshow', function(){
+
+        WiETMo.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        
+        WiETMo.find('.electronlink').on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-buzzingelectron.html", {transition: "slide"});
+        });
+        
+        WiETMo.find('#nucleuslink').on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-nucleus.html", {transition: "slide"});
+        });
+        
+        WiETMo.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        setTimeout(function(){mworldPageVisit(app.kidid, 'What-Is-Everything-Made-Of');},app.IWTrackTime);
+      });
+    })();
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+  <script src="js/magnifyingglassLogic.js"></script>
+</div> <!--//home-->

@@ -1,0 +1,150 @@
+<!-- i-C-a -->
+<div data-role="page" id="evensmaller">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Even Smaller</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/playingdetectivepol.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bubblecluespol.png" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/biggesttosmallestpol.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontentwos">
+        <p>Is there anything that can act as a 'bionic eye' to take pictures of things smaller than atoms?  Nobody has yet found a clever way to do this!  So, how do we 'see' things that are smaller than atoms?</p>
+        <p>The answer is: we can see them indirectly. Suppose you were invisible, and standing on a crowded train.  Other people would know you were there, because they would bump into you!  They'd know indirectly that you were there, because of the effect of you bumping into them, even though they couldn't see you.</p>
+        <p>Another example; imagine you have a cold.  Sneezing and your sore throat indirectly let you know you have a cold, even though the virus causing your cold is too tiny for you to see.  The same thing happens with atoms!  We can't see them directly, but we can see them indirectly!</p>
+        <p>A challenge for you; can you think of more examples of things you know to be true but cannot be seen directly with your own eyes?  Open the 'Read Me' cards on the left for some more examples.</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var evensmallerPage = $("#evensmaller");
+      evensmallerPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var pol1Var = evensmallerPage.find('div#pol1'),
+          pol2Var = evensmallerPage.find('div#pol2'),
+          pol3Var = evensmallerPage.find('div#pol3'); 
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 2);
+      pol2Var.css("z-index", 1);
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+      //change images path
+      changeImageSrc('evensmaller');
+      findElementsWithBgImage('evensmaller');
+      //changeAudioSrc();
+    
+      evensmallerPage.on('pageshow', function(){
+
+        pol1Var.on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-playingdetective.html", {transition: "slide"});
+        });
+        
+        pol2Var.on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-bubbleclues.html", {transition: "slide"});
+        });
+        
+        pol3Var.on('tap', function() {
+          $.mobile.changePage("game-iw3.html", {transition: "slide"});
+        });
+
+        evensmallerPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        
+        evensmallerPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Even-Smaller');},app.IWTrackTime); 
+      });
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-zoomingin.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+  <script src="js/threecardLogic.js"></script>
+</div> <!--//home-->

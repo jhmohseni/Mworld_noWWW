@@ -1,0 +1,112 @@
+<!-- i-C-a -->
+<div data-role="page" id="weirdbuttrue">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitlewos"><h1>Weird But True</h1></div>
+      <div class="storypagewos">
+        <p>Put both hands in front of you. Close your left hand into a fist, and leave your right hand open. Call this situation "A". Open your left hand and close your right hand. Call this "B". In either A or B, it is possible to say what each hand is doing.</p>
+        <p>Now let's go into the strange world of atoms, and replace your two hands with two atoms that are very close together.  With the strange world of atoms, you could have option A, or you could have option B.  However there is a third option: A and B at the same time!  </p>
+        <p>This third option disagrees with commonsense, but tiny things such as atoms don't obey commonsense laws!  When the atoms have option A and B at the same time, the atoms are said to be entangled.  This situation would be like your hands being in both A and B at the same time! If this was the case, you could not say what your left or right hand was doing, only that your pair of hands was in A and B at the same time. Weird but true!</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+    
+      var weirdbuttruePage = $("#weirdbuttrue");
+      weirdbuttruePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('weirdbuttrue');
+      findElementsWithBgImage('weirdbuttrue');
+      //changeAudioSrc();
+      weirdbuttruePage.on('pageshow', function(){
+
+        weirdbuttruePage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        weirdbuttruePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Weird-But-True');},app.IWTrackTime);
+      });
+    })();
+
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-howstrangecanitget.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+</div> <!--//home-->

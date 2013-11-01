@@ -1,0 +1,151 @@
+<!-- i-C-a -->
+<div data-role="page" id="playingdetective">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Playing Detective</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="atlaslink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/atlas.jpg', 'ATLAS detector at the LHC, inside which protons will collide.  Notice the person standing near the middle for scale.   (Courtesy CERN)')" href="#">click here</a>
+        <a id="cmslink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/cms.jpg', 'Scientists inspecting the heart of CMS, one of the large detectors at the LHC.   (Courtesy CERN)')" href="#">click here</a>
+        <a id="tunnelslink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnels.jpg', 'Inside the tunnels of the Large Hadron Collider (LHC), 100 meters underground, below Switzerland and France.   (Courtesy CERN)')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/atlaspol.png" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/cmspol.png" alt="" />
+          </div>
+          <div id="polb3"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnelspol.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontentwos">
+        <p>Sometimes the investigation of these clues leads to finding a new particle to add to the Particle Zoo!</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var playingdetectivePage = $("#playingdetective");
+      playingdetectivePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var polb1Var = playingdetectivePage.find('div#polb1'),
+          polb2Var = playingdetectivePage.find('div#polb2'),
+          polb3Var = playingdetectivePage.find('div#polb3');
+
+      polb1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      polb1Var.css("z-index", 2);
+      polb2Var.css("z-index", 1);
+      polb2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      polb3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+    
+      //change images path
+      changeImageSrc('playingdetective');
+      findElementsWithBgImage('playingdetective');
+      //changeAudioSrc();
+
+      playingdetectivePage.on('pageshow', function(){
+        polb1Var.on('tap', function() {
+          $('#atlaslink')[0].click();
+        });
+        
+        polb2Var.on('tap', function() {
+          $('#cmslink')[0].click();
+        });
+        
+        polb3Var.on('tap', function() {
+          $('#tunnelslink')[0].click();
+        });
+
+        playingdetectivePage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        playingdetectivePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Blue-Clues');},app.IWTrackTime);
+      });
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-evensmaller.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+  <script src="js/threecardLogicb.js"></script>
+</div> <!--//home-->

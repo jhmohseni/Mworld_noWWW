@@ -1,0 +1,289 @@
+<!-- i-C-a -->
+<div data-role="page" id="inworldgame-bigtosmall">
+    <script src="js/jquery.hammer.min.js"></script>
+    <div data-role="content" style="overflow:hidden !important;">
+        <div style="width:90%;margin:auto;">
+            <p id="gamedescription">
+                PLACE THESE IN ORDER OF BIGGEST TO SMALLEST TO WIN <span id="totalPoints">XXX</span> POINTS
+            </p>
+            <div id="choicetapeImage1" class="proton-img"></div>
+            <div id="choicetapeImage2" class="quack-img"></div>
+            <div id="choicetapeImage3" class="atom-img"></div>
+            <div id="choicetapeImage4" class="nucleus-img"></div>
+            <a id="choicetape1"></a>
+            <a id="choicetape2"></a>
+            <a id="choicetape3"></a>
+            <a id="choicetape4"></a>
+            <div id="gamepaper">
+                <a id="choice1"></a>
+                <a id="choice2"></a>
+                <a id="choice3"></a>
+                <a id="choice4"></a>
+                <div id="choiceResult1"></div>
+                <div id="choiceResult2"></div>
+                <div id="choiceResult3"></div>
+                <div id="choiceResult4"></div>
+                <span id="orderfrom">BIGGEST</span>
+                <span id="orderto">SMALLEST</span>
+                <div id="checkingbar"></div>
+                <a id="back"></a>
+                <a id="reset"></a>
+                <a id="submit"></a>
+            </div>
+        </div>
+        <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div>    
+    <div class="dialogOverlay"></div>
+    <div id="gamedialog">
+        <div id="gamedialog-content"></div>
+    </div>
+    <script>
+        
+        var iw3Game = $('#inworldgame-bigtosmall');
+        var checkingbarVar = iw3Game.find('#checkingbar');
+        var totalPoints = 0,
+            progressRate = parseInt(checkingbarVar.css("width"))/4,
+            isBusy = false;
+        
+        var choicesImage = new Array(4);
+        choicesImage[0] = "proton-img";
+        choicesImage[1] = "quack-img";
+        choicesImage[2] = "atom-img";
+        choicesImage[3] = "nucleus-img";
+
+        var correctAnswers = new Array(4);
+        correctAnswers[0]=2;
+        correctAnswers[1]=1;
+        correctAnswers[2]=4;
+        correctAnswers[3]=3;
+        
+        var answer = new Array(4);
+        answer[0]=0;
+        answer[1]=0;
+        answer[2]=0;
+        answer[3]=0;
+        
+        $(document).ready(function() {            
+
+            checkingbarVar.css("width", "0px");
+            iw3Game.find('.dialogOverlay').hide();
+            iw3Game.find('#gamedialog').hide();
+            
+            iw3Game.find('#choiceResult1').css("z-index",0);
+            iw3Game.find('#choiceResult2').css("z-index",0);
+            iw3Game.find('#choiceResult3').css("z-index",0);
+            iw3Game.find('#choiceResult4').css("z-index",0);
+            
+
+            iw3Game.find('#back').click(function() {                 
+                goBack();
+            });
+
+            iw3Game.find('#reset').click(function() {
+                if (isBusy) {
+                    return;
+                }
+                answer[0]=0;
+                answer[1]=0;
+                answer[2]=0;
+                answer[3]=0;   
+
+                iw3Game.find('#choicetapeImage1').show();
+                iw3Game.find('#choicetapeImage2').show();
+                iw3Game.find('#choicetapeImage3').show();
+                iw3Game.find('#choicetapeImage4').show();
+
+                iw3Game.find('#choiceResult1').css("z-index",0);
+                iw3Game.find('#choiceResult2').css("z-index",0);
+                iw3Game.find('#choiceResult3').css("z-index",0);
+                iw3Game.find('#choiceResult4').css("z-index",0);
+                
+                clearChoiceImages();
+            });
+            
+            iw3Game.find('#submit').click(function() {
+                var noOfCorrects = 0;
+                if (isBusy || parseInt(iw3Game.find('#choiceResult1').css("z-index")) > 0) {
+                    return;
+                }
+                for (var i = 0; i < 4; i++) {
+                    $('#choiceResult'+(i+1)).removeClass("correct-img");
+                    $('#choiceResult'+(i+1)).removeClass("wrong-img");
+                    if (answer[i] == 0) {
+                        alert("Incomplete answers");
+                        return;
+                    }
+                }
+                iw3Game.find('#choiceResult1').css("z-index",10000);
+                iw3Game.find('#choiceResult2').css("z-index",10000);
+                iw3Game.find('#choiceResult3').css("z-index",10000);
+                iw3Game.find('#choiceResult4').css("z-index",10000);
+                
+                var m = 0;
+                var progress = 0;
+                var timer = setInterval(function() {
+                    isBusy = true;
+                    progress += progressRate;
+                    checkingbarVar.css("width", progress+"px");
+                    $('#choiceResult'+(m+1)).hide();
+                    $('#choiceResult'+(m+1)).removeClass("correct-img");
+                    $('#choiceResult'+(m+1)).removeClass("wrong-img");
+                    if (answer[m] == correctAnswers[m]) {
+                        $('#choiceResult'+(m+1)).addClass("correct-img");
+                        $('#choiceResult'+(m+1)).show();
+                        noOfCorrects = noOfCorrects + 1;
+                    } else {
+                        $('#choiceResult'+(m+1)).addClass("wrong-img");
+                        $('#choiceResult'+(m+1)).show();
+                    }
+                    m += 1;
+                    if (m >= 4) {
+                        clearInterval(timer);
+                        isBusy = false;
+                        if (noOfCorrects == 4) {
+                            totalPoints = totalPoints + 1;
+                            $('#totalPoints').text(totalPoints);
+                            var h = "<h1>CONGRATULATIONS!!!</h1><br/><br/>THAT IS THE CORRECT<br/>ANSWER. ";
+                            h += "YOU EARNED<br/>(1) MPOINTS!!!<br/><br/>";
+                            h += "<a id='gamedialogcontinue' class='gamedialog-button' href='javascript: void(0)'>CONTINUE</a>";
+                            iw3Game.find('#gamedialog-content').html(h);
+                            $('#gamedialogcontinue').click(function() {
+                                iw3Game.find('.dialogOverlay').hide();
+                                iw3Game.find('#gamedialog').hide();
+                            });
+                            iw3Game.find('.dialogOverlay').show();
+                            iw3Game.find('#gamedialog').show();
+                        } else {                
+                            var h = "SORRY!<br/><br/>YOUR ANSWER IS INCORRECT<br/><br/>";
+                            h += "<a id='gamedialogretry' class='gamedialog-button' href='javascript: void(0)'>RETRY</a>&nbsp;";
+                            h += "<a id='gamedialogcancel' class='gamedialog-button' href='javascript: void(0)'>CANCEL</a>";
+                            $('#gamedialog-content').html(h);
+                            $('#gamedialogretry').click(function() {
+                                iw3Game.find('.dialogOverlay').hide();
+                                iw3Game.find('#gamedialog').hide();
+                                iw3Game.find('#reset').trigger('click');
+                            });
+                            $('#gamedialogcancel').click(function() {
+                                iw3Game.find('.dialogOverlay').hide();
+                                iw3Game.find('#gamedialog').hide();
+                            });
+                            iw3Game.find('.dialogOverlay').show();
+                            iw3Game.find('#gamedialog').show();
+                        }
+                    }
+                }, 300);                
+            });
+        });
+        
+        function dragEle(con) {
+            var co = $(con).hammer({
+                prevent_default: true,
+                drag: true,
+                transform: true,
+                touch: true,
+                drag_min_distance: 0,
+                transform_min_rotation: 0,
+                transform_min_scale: 0
+            });
+            var c = $(con);
+            // initial top and left properties of the dragged object
+            var startX = c.offset().left;
+            var startY = c.offset().top;
+            // current coordinates of the object
+            var curX = 0;
+            var curY = 0;
+            // the offset from the borders  of the object to the touch location
+            var offX = 0;
+            var offY = 0;
+            var targetChoices = $("#choice1, #choice2, #choice3, #choice4");
+            co.on("dragstart", function(e){
+                // getting the initial location
+                startX = c.offset().left;
+                startY = c.offset().top;
+                // the touch offset from the object borders
+                offX = e.gesture.center.pageX - startX;
+                offY = e.gesture.center.pageY - startY;
+            });
+
+            co.on("drag", function(e){
+                //new coordinates
+                curX = e.gesture.center.pageX - offX;
+                curY = e.gesture.center.pageY - offY;
+                //updating the css
+                c.css({left : curX});
+                c.css({top : curY});
+            });
+
+            co.on("dragend", function(e){      
+                var xVar = c.offset().left + (c.width()/2),
+                    yVar = c.offset().top + (c.height()/2),
+                    eleWidth = c.width(),
+                    eleHeight = c.height();            
+                //$("#draggedElement").remove();
+                targetChoices.each(function() {
+                    var $this = $(this);
+                    var pos = $this.offset();
+                    var lVar = parseInt(pos.left),
+                        tVar = parseInt(pos.top),
+                        wVar = (parseInt(pos.left) + parseInt($this.width())),
+                        hVar = (parseInt(pos.top) + parseInt($this.height()));            
+                    if (xVar >= lVar && xVar <= wVar && yVar >= tVar && yVar <= hVar) {
+                        var n = parseInt(c.attr('id').substring(c.attr('id').length-1));
+                        var m = parseInt($this.attr('id').substring($this.attr('id').length-1));
+                        processSelection(n, m);
+                    }
+                });
+            });
+        }
+
+        $(function() {
+            $('#choicetapeImage1, #choicetapeImage2, #choicetapeImage3, #choicetapeImage4').each(function(){
+                dragEle(this);
+            });
+          changeImageSrc('inworldgame-bigtosmall');
+          findElementsWithBgImage('inworldgame-bigtosmall');
+        });
+        
+        function processSelection(selectedChoiceNo, tapeNo) {       
+            for (var i = 0; i < 4; i++) {
+                if (answer[i] == tapeNo) {
+                    return;
+                }               
+            }
+            answer[selectedChoiceNo - 1] = tapeNo;
+            for (var i = 0; i < 4; i++) {
+                $('#choice' + (i + 1)).removeClass(choicesImage[tapeNo - 1]);
+            }
+            $('#choice' + selectedChoiceNo).addClass(choicesImage[tapeNo - 1]);
+        }
+        
+        function clearChoiceImages () {
+            for (var i = 0; i < 4; i++) {
+                $('#choice' + (i + 1)).removeClass(choicesImage[0]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[1]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[2]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[3]);
+                
+                $('#choiceResult' + (i + 1)).removeClass("correct-img");
+                $('#choiceResult' + (i + 1)).removeClass("wrong-img");
+                checkingbarVar.css("width", "0px");
+
+                iw3Game.find('#choicetapeImage1').css({top:'115px',left:'65px'});
+                iw3Game.find('#choicetapeImage2').css({top:'270px',left:'65px'});
+                iw3Game.find('#choicetapeImage3').css({top:'375px',left:'40px'});
+                iw3Game.find('#choicetapeImage4').css({top:'570px',left:'65px'});
+            }
+        }
+        
+        function goBack() {
+            $.mobile.changePage("sub-wonderscience-invisibleworld-evensmaller.html");
+            sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+            mainaudiobg.play();
+        }
+    
+        iw3Game.find('.homelinkbh').on('tap', function() { 
+            mainaudiobg.play(); sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+        });
+
+    </script>
+</div>

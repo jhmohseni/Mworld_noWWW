@@ -1,0 +1,164 @@
+<!-- i-C-a -->
+<div id="galaxies" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Galaxies and black holes</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                 <a id="andromedalink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/andromeda.jpg', 'Andromeda, the largest nearby galaxy to our own Milky Way galaxy...')" href="#">click here</a>
+                 <a id="ngclink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/ngc3079.jpg', 'A galaxy called NGC 3079, which is very, very far from our own galaxy...')" href="#">click here</a>
+                     <div id="zoomwrapper">
+                        <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/andromedapol.jpg" alt="" />
+                        </div>
+                        <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/ngc3079pol.jpg" alt="" />
+                        </div>
+                        <div id="polb3"class="pPiece" style="left:80px;top:270px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/supermassivepol.jpg" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentbh">
+                    <p>A galaxy is made of stars, gas and mysterious dark matter, all held together by gravity. There can be billions of stars in a single galaxy. And there are many billions of galaxies across the Universe.</p>
+                    <p>Our Earth, Sun and Solar System are all part of a galaxy called the Milky Way. </p>
+                    <p>Galaxies are enormous. To travel from Earth to the centre of our galaxy would take 26,000 years even if we travelled at the speed of light. That is 300,000 kilometres every second!</p>
+                    <p>There is a very large black hole in the centre of our galaxy, and in the centre of all large galaxies.  But don't fear - luckily the black hole at the centre of our galaxy is not a threat to the Earth...!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+  <div class="micbtnholder"><div class="micbtnbh" id="playstopgalaxies"></div></div>
+  <div class="bbh"><div class="rwbh" id="galaxiesaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="galaxiesaudioplbtn"></div></div>
+  <div class="fbh"><div class="fwbh" id="galaxiesaudiofbtn" ></div></div>
+  <div id="actualaudio-galaxies" style="visibility:hidden;"></div>
+    <script>
+        var playing;
+        var paused;
+        sound = new Audio();
+        (function() {
+            playing = false;
+            paused = true;
+            var galaxiesPage = $("#galaxies");
+            galaxiesPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            //change images path
+            changeImageSrc('galaxies');
+            findElementsWithBgImage('galaxies');
+            //changeAudioSrc();
+            var polb1Var = galaxiesPage.find('div#polb1'),
+                polb2Var = galaxiesPage.find('div#polb2'),
+                polb3Var = galaxiesPage.find('div#polb3');
+            polb1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+            polb1Var.css("z-index", 2);
+            polb2Var.css("z-index", 1);
+            polb2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+            polb3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+
+            if(sound.canPlayType('audio/mpeg')) {
+               galaxiesPage.find('#actualaudio-galaxies').html('<audio controls preload id="galaxiesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page18_0.mp3" type="audio/mpeg"></audio>');
+            } 
+
+            galaxiesPage.on('pageshow', function(){
+              
+              galaxiesPage.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+
+              polb3Var.on('tap', function() {
+                buttonClickEffects($(this));
+               $.mobile.changePage("sub-space-bh-bhingalaxy.html", {transition: "slide"});
+              });
+
+              polb2Var.on('tap', function() {
+                buttonClickEffects($(this));
+                 $('#ngclink')[0].click();
+                 mworldViewMedia(app.kidid, 'ngc');
+              });
+
+              polb1Var.on('tap', function() {
+                buttonClickEffects($(this));
+               $('#andromedalink')[0].click();
+               mworldViewMedia(app.kidid, 'andromeda');
+              });
+              
+              galaxiesPage.find("#playstopgalaxies").on('tap', function() {
+                if(!playing) {
+                  galaxiesaudio.play();
+                  galaxiesPage.find('.micbtnbh').css('background-position-x', '-81px');
+                  mworldPlayAudio(app.kidid, 'galaxiesaudio');
+                  playing = true;
+                  paused = false;
+                } else {
+                  galaxiesaudio.pause(); galaxiesaudio.currentTime = 0;
+                  galaxiesPage.find('.micbtnbh').css('background-position-x', '0px');
+                  playing = false;
+                  paused = true;
+                }
+              });
+              
+              galaxiesPage.find("#galaxiesaudioplbtn").on('tap', function() {
+                if(paused) {
+                  galaxiesaudio.play();
+                  paused = false;
+                } else {
+                  galaxiesaudio.pause();
+                  paused = true;
+                }
+              });
+              
+              galaxiesPage.find("#galaxiesaudiofbtn").on('tap', function() {
+                var ctime = galaxiesaudio.currentTime;
+                galaxiesaudio.currentTime = ctime + 10;
+              });
+              
+              galaxiesPage.find("#galaxiesaudiobbtn").on('tap', function() {
+                var ctime = galaxiesaudio.currentTime;
+                galaxiesaudio.currentTime = ctime - 10;
+              });
+              
+              galaxiesPage.find("#galaxiesaudiopsbtn").on('tap', function() {
+                galaxiesaudio.pause();
+                galaxiesPage.find(".galaxiesaudiopanel").css({"backgroundPosition":"0px 0px"});
+              });
+
+              galaxiesPage.find('.botlogoholder').on('tap', function(){
+                buttonClickEffects($(this));
+                playClickSound();
+              });
+
+              setTimeout(function(){ mworldPageVisit(app.kidid, 'Galaxies-And-Black-Holes'); },app.BHTrackTime);
+            });
+        })();
+        
+
+    
+    
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-lifeabh.html", {transition: "slide", reverse: true });
+        }
+    
+       function pausedaudio() {
+         bgsoundbh.play();
+       }
+       
+       function pausebg() {
+         bgsoundbh.pause();
+       }
+       
+    </script>
+   <script src="js/threecardLogicb.js"></script>
+</div>

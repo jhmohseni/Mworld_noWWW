@@ -1,0 +1,167 @@
+<!-- i-C-a -->
+<div id="lifeabh" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Universe Around a Black Hole</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                  <div class="sidebarleft-half">
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/galaxiesbhpol.jpg" alt="" />
+                        </div>
+                        <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/quasarpol.jpg" alt="" />
+                        </div>
+                        <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+                           <img src="images/5-8/Space/Black_Holes/Life_Around_BH/binariespol.jpg" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                
+                </div>
+                <div class="bpcontentbh">
+                    <p>Black holes are much more common than we originally thought.  Scientists think that most galaxies, including our very own Milky Way galaxy, contain a black hole at their centre.  There are many galaxies spread throughout the Universe - millions and millions and millions of them, which means there are millions and millions of black holes in the Universe!</p>
+                    <p>Sometimes a black hole pulls in gas from space, sometimes a black hole pulls in gas from nearby stars.  The gas swirls towards the black hole, like water getting sucked down a really big plughole.  The gas can get very, very hot and produce huge amounts of light.</p>
+                    <p>When a really massive black hole at the centre of a galaxy pulls in a lot of gas, this can produce jets of particles and vast amounts of light.  We call this a quasar.  A quasar can outshine all the other stars combined in its galaxy!</p>
+                    <p>Sometimes a black hole and a star <a href="#imongnawong" data-rel="popup">orbit</a> each other. We call this a binary. Follow the links to see what one of these looks like!</p>
+                </div>
+                <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+                  <div id="node-pop">
+                     <p>What is an orbit?</p>
+                     <p>Does gravity always pull objects together? It does, but this doesn't always result in objects colliding with each other. If objects are set in motion, then they can orbit one another.  That means they circle around each other.</p>
+                     <p>A satellite travels so fast horizontally that instead of crashing to Earth, the satellite ends up circling the Earth instead.  The Planets in our Solar System have orbited the Sun for billions of years!</p>
+                  </div>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="micbtnholder"><div class="micbtnbh" id="playstoplifeabh"></div></div>
+    <div class="bbh"><div class="rwbh" id="lifeabhaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="lifeabhaudioplbtn"></div></div>
+    <div class="fbh"><div class="fwbh" id="lifeabhaudiofbtn" ></div></div>
+    <div id="actualaudio-lifeabh" style="visibility:hidden;"></div>
+    
+    <script>
+        var playing;
+        var paused;
+        sound = new Audio();
+        soundpop = new Audio();
+        (function() {
+            playing = false;
+            paused = true;
+            var lifeabhPage = $("#lifeabh");
+            lifeabhPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            //change images path
+            changeImageSrc('lifeabh');
+            findElementsWithBgImage('lifeabh');
+            //changeAudioSrc();
+            var pol1Var = lifeabhPage.find('div#pol1'),
+                pol2Var = lifeabhPage.find('div#pol2'),
+                pol3Var = lifeabhPage.find('div#pol3');
+
+            pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+            pol1Var.css("z-index", 2);
+            pol2Var.css("z-index", 1);
+            pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+            pol3Var.find('img').css("-webkit-transform", "rotate(-5deg)");
+
+            if(sound.canPlayType('audio/mpeg')) {
+               lifeabhPage.find('#actualaudio-lifeabh').html('<audio controls preload id="lifeabhaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/page16v1.mp3" type="audio/mpeg"></audio>');
+            }                
+
+            lifeabhPage.on('pageshow', function(){             
+      
+              lifeabhPage.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+
+              pol3Var.on('tap', function() {
+                buttonClickEffects($(this));
+                $.mobile.changePage("sub-space-bh-binaries.html", {transition: "slide"});
+              });
+              
+              pol2Var.on('tap', function() {
+                buttonClickEffects($(this));
+                $.mobile.changePage("sub-space-bh-quasars.html", {transition: "slide"});
+              });
+              
+              pol1Var.on('tap', function() {
+                buttonClickEffects($(this));
+                $.mobile.changePage("sub-space-bh-galaxies.html", {transition: "slide"});
+              });
+              
+              lifeabhPage.find("#playstoplifeabh").on('tap', function() {
+                if(!playing) {
+                  lifeabhaudio.play();
+                  lifeabhPage.find('.micbtnbh').css('background-position-x', '-81px');
+                  mworldPlayAudio(app.kidid, 'lifeabhaudio');
+                  playing = true;
+                  paused = false;
+                } else {
+                  lifeabhaudio.pause();lifeabhaudio.currentTime = 0;
+                  lifeabhPage.find('.micbtnbh').css('background-position-x', '0px');
+                  playing = false;
+                  paused = true;
+                }
+              });
+              
+              lifeabhPage.find("#lifeabhaudioplbtn").on('tap', function() {
+                if(paused) {
+                  lifeabhaudio.play();
+                  paused = false;
+                } else {
+                  lifeabhaudio.pause();
+                  paused = true;
+                }
+              });
+              
+              lifeabhPage.find("#lifeabhaudiofbtn").on('tap', function() {
+                var ctime = lifeabhaudio.currentTime;
+                lifeabhaudio.currentTime = ctime + 10;
+              });
+              
+              lifeabhPage.find("#lifeabhaudiobbtn").on('tap', function() {
+                var ctime = lifeabhaudio.currentTime;
+                lifeabhaudio.currentTime = ctime - 10;
+              });
+              
+              lifeabhPage.find("#lifeabhaudiopsbtn").on('tap', function() {
+                lifeabhaudio.pause();
+                lifeabhPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+              });       
+              lifeabhPage.find('.botlogoholder').on('tap', function(){
+                buttonClickEffects($(this));
+                playClickSound();
+              });
+
+              setTimeout(function(){ mworldPageVisit(app.kidid, 'Universe-Around-A-Black-Hole'); },app.BHTrackTime);
+            });
+        })();
+        
+    
+        function goBack() {
+            $.mobile.changePage("sub-space-bh.html", {transition: "slide", reverse: true });
+        }
+        
+       function pausedaudio() {
+         bgsoundbh.play();
+       }
+       
+       function pausebg() {
+         bgsoundbh.pause();
+       }
+       
+                
+  </script><script src="js/threecardLogic.js"></script>
+</div>

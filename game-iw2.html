@@ -1,0 +1,63 @@
+<!-- i-C-a -->
+<div data-role="page" id="game-iw1">  
+  <div data-role="content">
+    <div id="overlayiwg1" style="position:absolute;width:1024px;height:748px;top:0;left:0;z-index:-1;visibility:hidden;">
+      <img id="wrongplank" style="position:absolute;left:204px;top:-319px;z-index:3;" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/wrongplank.png">
+      <img id="correctplank" style="position:absolute;left:204px;top:-319px;z-index:3;" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/correctplank.png">
+    </div>
+    <div id="wrapper">
+      <div style="width:198px;height:130px;position:absolute;top:540px;left:0px;z-index:9"><img src="images/9-12/The_Wonders_of_Science/Invisible_World/game/backbtn.png" id="backbtn"></div>
+      <div id="topquark" class="quarks" style="top:127px;left:638px;"><img id="extopquark" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png" style="margin-top:6px;display:none;margin:auto;"></div>
+      <div id="upquark" class="quarks" style="top:201px;left:638px;"><img id="exupquark" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png" style="margin-top:6px;display:none;margin:auto;"></div>
+      <div id="downquark" class="quarks" style="top:287px;left:638px;"><img id="exdownquark" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png" style="margin-top:6px;display:none;margin:auto;"></div>
+      <div id="strangequark" class="quarks" style="top:361px;left:638px;"><img id="exstrangequark" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png" style="margin-top:6px;display:none;margin:auto;"></div>
+      <div id="charmquark" class="quarks" style="top:435px;left:638px;"><img id="excharmquark" src="images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png" style="margin-top:6px;display:none;margin:auto;"></div>
+      <div id="sillyquark" style="width:266px;height:74px;position:absolute;left:638px;top:500px;"><img src="images/9-12/The_Wonders_of_Science/Invisible_World/game/sillyquark.png"></div>
+    </div>
+    <div class="v-spacer"></div>
+  </div> <!-- end content -->  
+  <script>
+    (function() {
+      changeImageSrc('game-iw1');
+      findElementsWithBgImage('game-iw1');
+    })();
+    
+    var answers = 0;
+    $('#backbtn').on('tap', function() {
+      //whatamimp3.pause();bgsoundbh.play();
+      $.mobile.changePage("sub-wonderscience-invisibleworld-cosmicrays.html", {transition: "slide", reverse: true });
+    });
+    
+    $('.quarks').on('tap', function() {
+      $(this).css('background-position', '0px -74px');
+      var thisid = $(this).attr('id');
+      if($("#ex"+thisid).css('display') == 'none') {
+        answers = answers + 1;
+        var ex = setTimeout(function() { 
+            $("#ex"+thisid).css('display', 'block'); 
+            $(this).unbind('click');
+            $(this).unbind('tap');
+            if(answers > 4) {
+              $('#overlayiwg1').css({'z-index':2, 'visibility':'visible'});
+              $('#wrongplank').animate({'top':'224px'}, 1500);
+            }
+          }, 2000);
+      }
+    });
+    
+    $('#wrongplank').on('tap', function() {
+      $('#overlayiwg1').css({'z-index':-1, 'visibility':'hidden'});
+      $('#wrongplank').css({'top':'-319px'});
+    });
+    
+    $('#correctplank').on('tap', function() {
+      $('#overlayiwg1').css({'z-index':-1, 'visibility':'hidden'});
+      $('#correctplank').css({'top':'-319px'});
+    });
+    
+    $('#sillyquark').on('tap', function() {
+      $('#overlayiwg1').css({'z-index':2, 'visibility':'visible'});
+      $('#correctplank').animate({'top':'224px'}, 1500);
+    });
+  </script>
+</div>

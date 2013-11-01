@@ -1,0 +1,196 @@
+<!-- i-C-a -->
+<div data-role="page" id="howstrangecanitget">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>How Strange Can it Get?</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/howstrangetfpol.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:#000000;">
+              <div style="width:324px;height:62px;position:relative;top:100px;left:5x;">
+                <p>Every second billions of particles from cosmic rays travel straight through us.<p>
+                <p>
+                  <span style="width:50%;float:left;"><a href="#" id="trueans">True</a></span>
+                  <span style="width:50%;float:left;"><a href="#" id="falseans">False</a></span>
+                </p>
+                <p style="text-align:center;">
+                  <a id="canceltf" href="#">Cancel</a>
+                </p>
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercomppol.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/weirdbuttruepol.png" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/howstrangetfpol.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontentwos">
+        <p>Walk outside, close your eyes and feel the sun shining on your face. This sunlight is made from photons that travelled through almost one hundred and fifty million kilometres of space, before being absorbed by your skin!</p>
+        <p>Photons from the sun are not the only particles to arrive on Earth from outer space. Many of the Particle Zoo's particles arrive from the sun and other stars. Lots of other things in outer space send particles to the Earth. These particles, arriving on Earth from outer space, are called cosmic rays.</p>
+        <p>Hold out your hand. At any one time, billions of cosmic ray particles from the all across the universe are travelling straight through your hand!  The particles in the cosmic rays pass straight through you without you noticing. Most continue to travel straight through the Earth. Scientists learn a lot about outer space from studying cosmic rays.</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var howstrangecanitgetPage = $("#howstrangecanitget");
+      howstrangecanitgetPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var pol1Var = howstrangecanitgetPage.find('div#pol1'),
+          pol2Var = howstrangecanitgetPage.find('div#pol2'),
+          pol3Var = howstrangecanitgetPage.find('div#pol3'),
+          f1CardVar = howstrangecanitgetPage.find('#f1_card'),
+          f1ContainerVar = howstrangecanitgetPage.find('#f1_container');
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 2);
+      pol2Var.css("z-index", 1);
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+    
+      //change images path
+      changeImageSrc('howstrangecanitget');
+      findElementsWithBgImage('howstrangecanitget');
+      //changeAudioSrc();
+      
+      howstrangecanitgetPage.on('pageshow', function(){
+
+        howstrangecanitgetPage.find("#canceltf").on('tap', function() {
+          f1CardVar.css({"-webkit-transform": "rotateY(0deg)"});
+          f1CardVar.css({"-moz-transform": "rotateY(0deg)"});
+          f1CardVar.css({"-o-transform": "rotateY(0deg)"});
+          f1CardVar.css({"transform": "rotateY(0deg)"});
+          setTimeout(function() {
+            pol3Var.css({"visibility":"visible", "z-index":3});
+            f1ContainerVar.css({"visibility":"hidden", "z-index":0});
+          }, 1000);
+          //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          //$("#hittites").swipe("enable");
+        });
+        
+        pol3Var.on('tap', function() {
+          f1ContainerVar.css({"visibility":"visible", "z-index":10});
+          $(this).css({"visibility":"hidden"});
+          f1CardVar.css({"-webkit-transform": "rotateY(180deg)"});
+          f1CardVar.css({"-moz-transform": "rotateY(180deg)"});
+          f1CardVar.css({"-o-transform": "rotateY(180deg)"});
+          f1CardVar.css({"transform": "rotateY(180deg)"});
+        });
+        
+        pol2Var.on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-weirdbuttrue.html", {transition: "slide"});
+        });
+        
+        pol1Var.on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-quantumsupercomps.html", {transition: "slide"});
+        });
+
+        howstrangecanitgetPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        howstrangecanitgetPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        
+        howstrangecanitgetPage.find('#trueans').on('tap', function() {
+          navigator.notification.alert('You got it right!', function(){}, 'True or False', 'ok');
+        });
+        
+        howstrangecanitgetPage.find('#falseans').on('tap', function() {
+          navigator.notification.alert('You got it wrong!', function(){}, 'True or False', 'ok');
+        });
+        
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'How-Strange-Can-It-Get'); },app.IWTrackTime);
+      });
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+  </script>
+  <script src="js/threecardLogic.js"></script>
+</div> <!--//home-->

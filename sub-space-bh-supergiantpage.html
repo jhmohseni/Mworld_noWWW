@@ -1,0 +1,56 @@
+<!-- i-C-a -->
+<div data-role="page" id="supergiantpage">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div style="width:66px;height:33px;position:absolute;top:437px;left:210px;">
+        <img id="startnarrate" src="images/5-8/Space/Black_Holes/Where_BH_Come/narratebtn.png">
+      </div>
+      <!--<div style="width:388px;height:100px;position:absolute;top:486px;left:57px;overflow-y:scroll;font-family:'Chalkboard SE';">
+        <div id="supergiantnarholder" style="visibility:hidden;">
+          <audio controls preload id="supergiantnar" onpause="pausedaudio()" onplay="pausebg()">
+            <source src="audio/supergiantnar.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <p style="margin-top:0 !important;padding-top:0 !important;">We are all made of atoms, and the different kinds of atoms are called elements. Oxygen, hydrogen, carbon, iron and gold are all elements.</p>
+        <p>In our daily lives, elements remain unchanged. You cannot easily turn hydrogen into helium or carbon into oxygen.</p>
+        <p>But in the super hot and super dense core of a star, hydrogen atoms are fused together to become helium atoms. This is nuclear fusion, and this process powers all stars including our Sun.</p>
+      </div>-->
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var superGiantMainPage = $('#supergiantpage');
+      superGiantMainPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      superGiantMainPage.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+      superGiantMainPage.find("#startnarrate").on('tap', function() {
+        //$("#supergiantnarholder").css({"visibility":"visible"});
+        supergiantnar.play();
+      });
+      superGiantMainPage.find('.botlogoholder').on('tap', function(){
+        buttonClickEffects($(this));
+        playClickSound();
+      });
+      superGiantMainPage.on('pageshow', function(){
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Supergiant'); },app.BHTrackTime);
+      });
+    })();
+
+    //change images path
+    changeImageSrc('supergiantpage');
+    findElementsWithBgImage('supergiantpage');
+    //changeAudioSrc();
+    function goBack() { $.mobile.changePage("sub-space-bh-supergiant.html"); }
+    function pausedaudio() { bgsoundbh.play(); }
+    function pausebg() { bgsoundbh.pause(); }
+  </script>
+</div>

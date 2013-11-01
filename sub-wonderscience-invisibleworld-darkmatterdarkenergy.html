@@ -1,0 +1,139 @@
+<!-- i-C-a -->
+<div data-role="page" id="darkmatterdarkenergy">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Dark Matter &amp; Dark Energy...</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="clusterlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cluster.jpg', 'This composite image shows the galaxy cluster known as the bullet cluster.  This cluster provides some of the strongest evidence for dark matter because light travelling near the cluster is bent by the invisible Dark matter. (credit:X-ray: NASA/CXC/CfA/M.Markevitch et al.; Optical: NASA/STScI; Magellan/U.Arizona/D.Clowe et al.; Lensing Map: NASA/STScI; ESO WFI; Magellan/U.Arizona/D.Clowe et al.)')" href="#">click here</a>
+        <a id="piechartlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartjpeg.jpg', 'Pie chart showing that most of the stuff out there is not normal matter!')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/clusterpol.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartpol.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontentwos">
+        <p>Anti-matter atoms in the depths of space are different to the atoms in the world. Instead of having electrons swirling around a nucleus made from protons and neutrons, anti-matter atoms have anti-electrons swirling around a nucleus made from anti-protons and anti-neutrons. Anti-electrons and anti-protons and anti-neutrons also belong to the Particle Zoo. These and other anti-particles can occur inside anti-matter atoms, or by themselves.</p>
+        <p>When matter bumps into anti-matter something amazing happens. The matter and antimatter annihilate! Annihilation means that something is destroyed and disappears. This annihilation creates an explosion which makes photons to appear.</p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var darkmatterdarkenergyPage = $("#darkmatterdarkenergy");
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#pol1').css("z-index", 1);      
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");      
+      $('#eatinggasholder').css({"visibility":"hidden", "z-index":-10});	
+    
+      darkmatterdarkenergyPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('darkmatterdarkenergy');
+      findElementsWithBgImage('darkmatterdarkenergy');
+      //changeAudioSrc();
+      darkmatterdarkenergyPage.on('pageshow', function(){
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Dark-Matter-Dark-Energy');},app.IWTrackTime);
+      });
+    })();
+    
+    $('#pol2').on('tap', function() {
+      $('#piechartlink')[0].click();
+    });
+    
+    $('#pol1').on('tap', function() {
+      $('#clusterlink')[0].click();
+    });
+
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-whatelseisoutthere.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    /* ******************** */
+    /*$("#playstopbh").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'bhaudio');
+        playing = true;
+        paused = false;
+      } else {
+        bhaudio.pause(); bhaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#bhaudioplbtn").on('tap', function() {
+      if(paused) {
+        bhaudio.play();
+        paused = false;
+      } else {
+        bhaudio.pause();
+        paused = true;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bhaudiofbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bhaudiobbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bhaudiopsbtn").on('tap', function() {
+      bhaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });*/
+    
+    $('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+      playClickSound();
+    });
+    
+  </script>
+  <script src="js/twocardLogic.js"></script>
+</div> <!--//home-->

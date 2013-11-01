@@ -1,0 +1,113 @@
+<!-- i-C-a -->
+<div data-role="page" id="particlezoo">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitlewos"><h1>Particle Zoo</h1></div>
+      <div class="storypagewos">
+        <p>We've learned that the 'stuff' in the world around us is made from atoms.  These atoms are made from particles called protons, neutrons and electrons.  The protons and neutrons are made from "up" and "down" quarks.</p>
+        <p>There are other types of quarks as well, called "top", "bottom", "charmed" and "strange".  These quarks are not part of the atoms in the ordinary things we see around us every day.  However, scientists can make them, and sometimes they arrive on Earth as beams from outer space known as cosmic rays.  There are lots of particles that make up all the things in the world.  They're all part of the Particle Zoo!</p>
+        <p>Electrons, "up" quarks and "down" quarks are the most common members of the Particle Zoo, while other bizarre particles such as "charmed" quarks are the more unusual animals in the zoo.  Other unusual members of the zoo are "strange" quarks, "W bosons", "Z bosons", "neutrinos", "muons" and "tauons".</p>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+    
+      var particlezooPage = $("#particlezoo");
+      particlezooPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('particlezoo');
+      findElementsWithBgImage('particlezoo');
+      //changeAudioSrc();
+      particlezooPage.on('pageshow', function(){ 
+        particlezooPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+
+        particlezooPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Particle-Zoo');},app.IWTrackTime);
+      });
+    })();
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+</div> <!--//home-->

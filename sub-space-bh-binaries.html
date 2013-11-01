@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div id="binaries" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Binaries</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                  <a id="cygnus-x1link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1.jpg', 'The beautiful Cygnus X-1 black hole sucking gas from its nearby star...')" href="#">click here</a>
+                  <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                     <img src="images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1pol.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="bpcontentbh">
+                    <p>Many of the stars in the night sky are binaries. Binary means two pieces or parts. It this case, binaries are two stars that are locked into orbit around each other. </p>
+                    <p>The brightest star in the night sky, Sirius, is part of a binary. Alpha Centauri, one of the closest stars to Earth, is also part of a binary.</p>
+                    <p>Sometimes we find a star and a black hole orbiting each other. Cygnus X-1 is the best known example of a black hole and a star orbiting each other. </p>
+                    <p>The Cygnus X-1 black hole is sucking gas from the star beside it. As the gas falls towards the black hole, the gas gets so hot that X-rays are produced.</p>
+                    <p>We can see these X-rays with satellites, and make images of what it might look like if we could see it up close. It would be scary but very beautiful!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     <div class="micbtnholder"><div class="micbtnbh" id="playstopbinaries"></div></div>
+      <div class="bbh"><div class="rwbh" id="binariesaudiobbtn"></div></div>
+      <div class="plbh"><div class="plpsbh" id="binariesaudioplbtn"></div></div>
+      <div class="fbh"><div class="fwbh" id="binariesaudiofbtn" ></div></div>
+      <div id="actualaudio-binaries" style="visibility:hidden;"></div>
+    <script>
+        var playing;
+        var paused;
+        sound = new Audio(); // 'sound' is now an audio object
+        (function() {
+          playing = false;
+          paused = true;
+            var binariesPages = $("#binaries");
+            binariesPages.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            //change images path
+            changeImageSrc('binaries');
+            findElementsWithBgImage('binaries');
+            //changeAudioSrc();
+
+            if(sound.canPlayType('audio/mpeg')) {
+                binariesPages.find('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page21.mp3" type="audio/mpeg"></audio>');
+            } 
+            
+            binariesPages.on('pageshow', function(){
+
+              binariesPages.find('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+              binariesPages.find("#polb1").on('tap', function() {
+                buttonClickEffects($(this));
+                binariesPages.find('#cygnus-x1link')[0].click();
+                mworldViewMedia(app.kidid, 'cygnus-x1');
+              });
+              
+              binariesPages.find("#playstopbinaries").on('tap', function() {
+                if(!playing) {
+                  binariesaudio.play();
+                  binariesPages.find('.micbtnbh').css('background-position-x', '-81px');
+                  mworldPlayAudio(app.kidid, 'binariesaudio');
+                  playing = true;
+                  paused = false;
+                } else {
+                  binariesaudio.pause();binariesaudio.currentTime = 0;
+                  binariesPages.find('.micbtnbh').css('background-position-x', '0px');
+                  playing = false;
+                  paused = true;
+                }
+              });
+              
+              binariesPages.find("#binariesaudioplbtn").on('tap', function() {
+                if(paused) {
+                  binariesaudio.play();
+                  paused = false;
+                } else {
+                  binariesaudio.pause();
+                  paused = true;
+                }
+              });
+              
+              binariesPages.find("#binariesaudiofbtn").on('tap', function() {
+                var ctime = binariesaudio.currentTime;
+                binariesaudio.currentTime = ctime + 10;
+              });
+              
+              binariesPages.find("#binariesaudiobbtn").on('tap', function() {
+                var ctime = binariesaudio.currentTime;
+                binariesaudio.currentTime = ctime - 10;
+              });
+              
+              binariesPages.find("#binariesaudiopsbtn").on('tap', function() {
+                binariesaudio.pause();
+                binariesPages.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+              });
+
+              binariesPages.find('.botlogoholder').on('tap', function(){
+                buttonClickEffects($(this));
+                playClickSound();
+              });
+
+              setTimeout(function(){ mworldPageVisit(app.kidid, 'Binaries');},app.BHTrackTime);
+            });
+        })();
+
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-lifeabh.html", {transition: "slide", reverse: true });
+        }
+        
+        function pausedaudio() {
+          bgsoundbh.play();
+        }
+         
+        function pausebg() {
+          bgsoundbh.pause();
+        }
+        
+    </script>
+</div>

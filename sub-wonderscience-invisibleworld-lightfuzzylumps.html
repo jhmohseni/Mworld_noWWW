@@ -1,0 +1,123 @@
+<!-- i-C-a -->
+<div data-role="page" id="lightfuzzylumps">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Light - Fuzzy Lumps</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      </div>
+      
+      <div class="bpcontentwos">
+        <p>Light is made from fuzzy lumps of light called photons. Some photons we can see. These are called visible light. We can see visible light photons in all of the colours of the rainbow. When you look at anything in the world your eye is collecting visible-light photons and turning them into the image you see.</p>
+        <p>There are also photons we can't see, invisible light.  For example, when you feel heat from a hot light globe or a warm fire, then your skin is sensing invisible infrared photons. When you warm your food in a microwave oven, invisible microwave photons pass into your food to heat it up. If you've been to the doctor to get an x-ray photograph of your bones, the photos are taken using invisible x-ray photons.</p>
+      </div>
+      <div id="mglass" style="left:250px;top:416px;position:absolute;">
+         <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png" alt="" />
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      
+      var lightfuzzylumpsPage = $("#lightfuzzylumps");
+      lightfuzzylumpsPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('lightfuzzylumps');
+      findElementsWithBgImage('lightfuzzylumps');
+      //changeAudioSrc();
+
+      lightfuzzylumpsPage.on('pageshow', function(){
+
+        lightfuzzylumpsPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        
+        lightfuzzylumpsPage.find('#mglass').on('tap', function() {
+           $.mobile.changePage("game-iw1.html", {transition: "slide"});
+        });
+        
+        lightfuzzylumpsPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Light--Fuzzy-Lumps');});
+      });
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-whatelseisoutthere.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+  <script src="js/twocardLogic.js"></script>
+</div> <!--//home-->

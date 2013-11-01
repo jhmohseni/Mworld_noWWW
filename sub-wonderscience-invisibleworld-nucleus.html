@@ -1,0 +1,132 @@
+<!-- i-C-a -->
+<div data-role="page" id="nucleus">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
+  <script src="js/slidebarwos.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+    <div data-role="content" class="kidzcontent">
+      
+      <div class="storypagetitlewos" style="top:30px;"><h1>Nucleus</h1></div>
+      <div class="storypagewos" style="top:75px;">
+        <p>Atoms have a small ball in their centre, called a nucleus, which the electrons buzz around. The nucleus is so small, that if we could enlarge an atom to the size of the gigantic London Eye ferris wheel, the nucleus would be the size of a crayon's tip!</p>
+        <p>The nucleus is made up of even smaller balls called protons and neutrons.  The number of protons determines the name of an atom.  Oxygen atoms in the air we breathe have eight protons in their nucleus.  Carbon atoms, which are spread throughout our bodies and through the bodies of most living things on Earth, have six protons in their nucleus.</p>
+        <p>Hydrogen has only one proton.  Water has hydrogen as one of its ingredients (the other is oxygen).  Our sun and most of the stars we see in the sky are mainly made of hydrogen.  Some atoms have lots of protons.  The metal called lead has 82 protons, and a recently discovered atom called Ununseptium has 117!</p>
+      </div>
+      <div style="position:absolute;top:520px;left:400px;width:100px;height:100px;font-size:12px;">
+        Tap "protons" or "neutrons" to find out more.
+      </div>
+      <div id="protonslink" style="width:50px;height:50px;left:350px;top:340px;background:transparent;position:absolute;color:#FFFFFF;">
+        Protons
+      </div>
+      <div id="neutronslink" style="width:50px;height:50px;left:160px;top:392px;background:transparent;position:absolute;color:#FFFFFF;">
+        Neutrons
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
+    <div class="bwos"><div class="rwwos" id="bhaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="bhaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="bhaudiofbtn"></div></div>
+    <div id="actualaudio-bh" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+    
+      var nucleusPage = $("#nucleus");
+      nucleusPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc('nucleus');
+      findElementsWithBgImage('nucleus');
+      //changeAudioSrc();
+
+      nucleusPage.on('pageshow', function(){
+        nucleusPage.find('.homelinkbh').on('tap', function() { 
+          buttonEffectsBH();
+          mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+        });
+        
+        nucleusPage.find('#protonslink').on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
+        });
+        
+        nucleusPage.find('#neutronslink').on('tap', function() {
+          $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
+        });
+
+        nucleusPage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        /* ******************** */
+        /*$("#playstopbh").on('tap', function() {
+          if(!playing) {
+            bhaudio.play();
+            $('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'bhaudio');
+            playing = true;
+            paused = false;
+          } else {
+            bhaudio.pause(); bhaudio.currentTime = 0;
+            $('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        $("#bhaudioplbtn").on('tap', function() {
+          if(paused) {
+            bhaudio.play();
+            paused = false;
+          } else {
+            bhaudio.pause();
+            paused = true;
+          }
+          //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        $("#bhaudiofbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime + 10;
+        });
+        
+        $("#bhaudiobbtn").on('tap', function() {
+          var ctime = bhaudio.currentTime;
+          bhaudio.currentTime = ctime - 10;
+        });
+        
+        $("#bhaudiopsbtn").on('tap', function() {
+          bhaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });*/
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid,'Nucleus');},app.IWTrackTime);
+      });
+    })();
+
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-whatiseverythingmadeof.html", {transition: "slide", reverse: true });
+    }
+    
+    function pausedaudio() {
+      invisibleworldbg.play();
+    }
+    
+    function pausebg() {
+      invisibleworldbg.pause();
+    }
+    
+  </script>
+</div> <!--//home-->
